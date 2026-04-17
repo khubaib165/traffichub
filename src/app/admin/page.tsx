@@ -352,11 +352,10 @@ export default function AdminPage() {
                           <h3 className="font-semibold text-text-primary">{user.name}</h3>
                           <Badge
                             status={user.status === "suspended" ? "rejected" : (user.status as any)}
-                          >
-                            {user.status}
-                          </Badge>
+                            label={user.status}
+                          />
                           {user.verified && (
-                            <Badge type="active">Verified</Badge>
+                            <Badge status="active" label="Verified" />
                           )}
                         </div>
                         <p className="text-sm text-text-muted mb-2">{user.email}</p>
