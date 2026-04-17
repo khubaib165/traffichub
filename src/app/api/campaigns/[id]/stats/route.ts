@@ -3,9 +3,10 @@ import pushHouseService from "@/lib/push-house-client";
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params;
     const { searchParams } = new URL(request.url);
     const from = searchParams.get("from");
     const to = searchParams.get("to");
@@ -14,7 +15,7 @@ export async function GET(
     if (from) params_obj.from = from;
     if (to) params_obj.to = to;
 
-    const response = await pushHouseService.getCampaignStats(params.id, params_obj);
+    const response = await pushHouseService.getCampaignStats(id, params_obj);
 
     return NextResponse.json(
       {

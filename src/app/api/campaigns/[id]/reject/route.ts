@@ -3,12 +3,13 @@ import { adminDb } from "@/lib/firebase-admin";
 
 export async function POST(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params;
     const { reason } = await request.json();
 
-    await adminDb.collection("campaigns").doc(params.id).update({
+    await adminDb.collection("campaigns").doc(id).update({
       status: "rejected",
       rejectionReason: reason || "Rejected by admin",
       updatedAt: new Date(),

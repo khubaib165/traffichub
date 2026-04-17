@@ -3,16 +3,17 @@ import { adminDb } from "@/lib/firebase-admin";
 
 export async function POST(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    await adminDb.collection("campaigns").doc(params.id).update({
+    const { id } = await params;
+    await adminDb.collection("campaigns").doc(id).update({
       status: "active",
       updatedAt: new Date(),
     });
 
     return NextResponse.json(
-      { id: params.id, message: "Campaign approved successfully" },
+      { id, message: "Campaign approved successfully" },
       { status: 200 }
     );
   } catch (error) {

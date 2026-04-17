@@ -3,16 +3,17 @@ import { adminDb } from "@/lib/firebase-admin";
 
 export async function POST(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    await adminDb.collection("users").doc(params.id).update({
+    const { id } = await params;
+    await adminDb.collection("users").doc(id).update({
       status: "suspended",
       updatedAt: new Date(),
     });
 
     return NextResponse.json(
-      { id: params.id, message: "User suspended successfully" },
+      { id, message: "User suspended successfully" },
       { status: 200 }
     );
   } catch (error) {

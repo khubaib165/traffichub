@@ -3,12 +3,13 @@ import { adminDb } from "@/lib/firebase-admin";
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params;
     const docSnapshot = await adminDb
       .collection("users")
-      .doc(params.id)
+      .doc(id)
       .get();
 
     if (!docSnapshot.exists) {
