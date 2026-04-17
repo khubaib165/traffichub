@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<!-- saved from url=(0047)https://api.push.house/#/paths/v1-audiences/get -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">:root, :host {
+  --fa-font-solid: normal 900 1em/1 "Font Awesome 6 Solid";
+  --fa-font-regular: normal 400 1em/1 "Font Awesome 6 Regular";
+  --fa-font-light: normal 300 1em/1 "Font Awesome 6 Light";
+  --fa-font-thin: normal 100 1em/1 "Font Awesome 6 Thin";
+  --fa-font-duotone: normal 900 1em/1 "Font Awesome 6 Duotone";
+  --fa-font-brands: normal 400 1em/1 "Font Awesome 6 Brands";
+}
+
+svg:not(:root).svg-inline--fa, svg:not(:host).svg-inline--fa {
+  overflow: visible;
+  box-sizing: content-box;
+}
+
+.svg-inline--fa {
+  display: var(--fa-display, inline-block);
+  height: 1em;
+  overflow: visible;
+  vertical-align: -0.125em;
+}
+.svg-inline--fa.fa-2xs {
+  vertical-align: 0.1em;
+}
+.svg-inline--fa.fa-xs {
+  vertical-align: 0em;
+}
+.svg-inline--fa.fa-sm {
+  vertical-align: -0.0714285705em;
+}
+.svg-inline--fa.fa-lg {
+  vertical-align: -0.2em;
+}
+.svg-inline--fa.fa-xl {
+  vertical-align: -0.25em;
+}
+.svg-inline--fa.fa-2xl {
+  vertical-align: -0.3125em;
+}
+.svg-inline--fa.fa-pull-left {
+  margin-right: var(--fa-pull-margin, 0.3em);
+  width: auto;
+}
+.svg-inline--fa.fa-pull-right {
+  margin-left: var(--fa-pull-margin, 0.3em);
+  width: auto;
+}
+.svg-inline--fa.fa-li {
+  width: var(--fa-li-width, 2em);
+  top: 0.25em;
+}
+.svg-inline--fa.fa-fw {
+  width: var(--fa-fw-width, 1.25em);
+}
+
+.fa-layers svg.svg-inline--fa {
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.fa-layers-counter, .fa-layers-text {
+  display: inline-block;
+  position: absolute;
+  text-align: center;
+}
+
+.fa-layers {
+  display: inline-block;
+  height: 1em;
+  position: relative;
+  text-align: center;
+  vertical-align: -0.125em;
+  width: 1em;
+}
+.fa-layers svg.svg-inline--fa {
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+}
+
+.fa-layers-text {
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+}
+
+.fa-layers-counter {
+  background-color: var(--fa-counter-background-color, #ff253a);
+  border-radius: var(--fa-counter-border-radius, 1em);
+  box-sizing: border-box;
+  color: var(--fa-inverse, #fff);
+  line-height: var(--fa-counter-line-height, 1);
+  max-width: var(--fa-counter-max-width, 5em);
+  min-width: var(--fa-counter-min-width, 1.5em);
+  overflow: hidden;
+  padding: var(--fa-counter-padding, 0.25em 0.5em);
+  right: var(--fa-right, 0);
+  text-overflow: ellipsis;
+  top: var(--fa-top, 0);
+  -webkit-transform: scale(var(--fa-counter-scale, 0.25));
+          transform: scale(var(--fa-counter-scale, 0.25));
+  -webkit-transform-origin: top right;
+          transform-origin: top right;
+}
+
+.fa-layers-bottom-right {
+  bottom: var(--fa-bottom, 0);
+  right: var(--fa-right, 0);
+  top: auto;
+  -webkit-transform: scale(var(--fa-layers-scale, 0.25));
+          transform: scale(var(--fa-layers-scale, 0.25));
+  -webkit-transform-origin: bottom right;
+          transform-origin: bottom right;
+}
+
+.fa-layers-bottom-left {
+  bottom: var(--fa-bottom, 0);
+  left: var(--fa-left, 0);
+  right: auto;
+  top: auto;
+  -webkit-transform: scale(var(--fa-layers-scale, 0.25));
+          transform: scale(var(--fa-layers-scale, 0.25));
+  -webkit-transform-origin: bottom left;
+          transform-origin: bottom left;
+}
+
+.fa-layers-top-right {
+  top: var(--fa-top, 0);
+  right: var(--fa-right, 0);
+  -webkit-transform: scale(var(--fa-layers-scale, 0.25));
+          transform: scale(var(--fa-layers-scale, 0.25));
+  -webkit-transform-origin: top right;
+          transform-origin: top right;
+}
+
+.fa-layers-top-left {
+  left: var(--fa-left, 0);
+  right: auto;
+  top: var(--fa-top, 0);
+  -webkit-transform: scale(var(--fa-layers-scale, 0.25));
+          transform: scale(var(--fa-layers-scale, 0.25));
+  -webkit-transform-origin: top left;
+          transform-origin: top left;
+}
+
+.fa-1x {
+  font-size: 1em;
+}
+
+.fa-2x {
+  font-size: 2em;
+}
+
+.fa-3x {
+  font-size: 3em;
+}
+
+.fa-4x {
+  font-size: 4em;
+}
+
+.fa-5x {
+  font-size: 5em;
+}
+
+.fa-6x {
+  font-size: 6em;
+}
+
+.fa-7x {
+  font-size: 7em;
+}
+
+.fa-8x {
+  font-size: 8em;
+}
+
+.fa-9x {
+  font-size: 9em;
+}
+
+.fa-10x {
+  font-size: 10em;
+}
+
+.fa-2xs {
+  font-size: 0.625em;
+  line-height: 0.1em;
+  vertical-align: 0.225em;
+}
+
+.fa-xs {
+  font-size: 0.75em;
+  line-height: 0.0833333337em;
+  vertical-align: 0.125em;
+}
+
+.fa-sm {
+  font-size: 0.875em;
+  line-height: 0.0714285718em;
+  vertical-align: 0.0535714295em;
+}
+
+.fa-lg {
+  font-size: 1.25em;
+  line-height: 0.05em;
+  vertical-align: -0.075em;
+}
+
+.fa-xl {
+  font-size: 1.5em;
+  line-height: 0.0416666682em;
+  vertical-align: -0.125em;
+}
+
+.fa-2xl {
+  font-size: 2em;
+  line-height: 0.03125em;
+  vertical-align: -0.1875em;
+}
+
+.fa-fw {
+  text-align: center;
+  width: 1.25em;
+}
+
+.fa-ul {
+  list-style-type: none;
+  margin-left: var(--fa-li-margin, 2.5em);
+  padding-left: 0;
+}
+.fa-ul > li {
+  position: relative;
+}
+
+.fa-li {
+  left: calc(var(--fa-li-width, 2em) * -1);
+  position: absolute;
+  text-align: center;
+  width: var(--fa-li-width, 2em);
+  line-height: inherit;
+}
+
+.fa-border {
+  border-color: var(--fa-border-color, #eee);
+  border-radius: var(--fa-border-radius, 0.1em);
+  border-style: var(--fa-border-style, solid);
+  border-width: var(--fa-border-width, 0.08em);
+  padding: var(--fa-border-padding, 0.2em 0.25em 0.15em);
+}
+
+.fa-pull-left {
+  float: left;
+  margin-right: var(--fa-pull-margin, 0.3em);
+}
+
+.fa-pull-right {
+  float: right;
+  margin-left: var(--fa-pull-margin, 0.3em);
+}
+
+.fa-beat {
+  -webkit-animation-name: fa-beat;
+          animation-name: fa-beat;
+  -webkit-animation-delay: var(--fa-animation-delay, 0);
+          animation-delay: var(--fa-animation-delay, 0);
+  -webkit-animation-direction: var(--fa-animation-direction, normal);
+          animation-direction: var(--fa-animation-direction, normal);
+  -webkit-animation-duration: var(--fa-animation-duration, 1s);
+          animation-duration: var(--fa-animation-duration, 1s);
+  -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+          animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  -webkit-animation-timing-function: var(--fa-animation-timing, ease-in-out);
+          animation-timing-function: var(--fa-animation-timing, ease-in-out);
+}
+
+.fa-bounce {
+  -webkit-animation-name: fa-bounce;
+          animation-name: fa-bounce;
+  -webkit-animation-delay: var(--fa-animation-delay, 0);
+          animation-delay: var(--fa-animation-delay, 0);
+  -webkit-animation-direction: var(--fa-animation-direction, normal);
+          animation-direction: var(--fa-animation-direction, normal);
+  -webkit-animation-duration: var(--fa-animation-duration, 1s);
+          animation-duration: var(--fa-animation-duration, 1s);
+  -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+          animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  -webkit-animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.28, 0.84, 0.42, 1));
+          animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.28, 0.84, 0.42, 1));
+}
+
+.fa-fade {
+  -webkit-animation-name: fa-fade;
+          animation-name: fa-fade;
+  -webkit-animation-delay: var(--fa-animation-delay, 0);
+          animation-delay: var(--fa-animation-delay, 0);
+  -webkit-animation-direction: var(--fa-animation-direction, normal);
+          animation-direction: var(--fa-animation-direction, normal);
+  -webkit-animation-duration: var(--fa-animation-duration, 1s);
+          animation-duration: var(--fa-animation-duration, 1s);
+  -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+          animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  -webkit-animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.4, 0, 0.6, 1));
+          animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.4, 0, 0.6, 1));
+}
+
+.fa-beat-fade {
+  -webkit-animation-name: fa-beat-fade;
+          animation-name: fa-beat-fade;
+  -webkit-animation-delay: var(--fa-animation-delay, 0);
+          animation-delay: var(--fa-animation-delay, 0);
+  -webkit-animation-direction: var(--fa-animation-direction, normal);
+          animation-direction: var(--fa-animation-direction, normal);
+  -webkit-animation-duration: var(--fa-animation-duration, 1s);
+          animation-duration: var(--fa-animation-duration, 1s);
+  -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+          animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  -webkit-animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.4, 0, 0.6, 1));
+          animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.4, 0, 0.6, 1));
+}
+
+.fa-flip {
+  -webkit-animation-name: fa-flip;
+          animation-name: fa-flip;
+  -webkit-animation-delay: var(--fa-animation-delay, 0);
+          animation-delay: var(--fa-animation-delay, 0);
+  -webkit-animation-direction: var(--fa-animation-direction, normal);
+          animation-direction: var(--fa-animation-direction, normal);
+  -webkit-animation-duration: var(--fa-animation-duration, 1s);
+          animation-duration: var(--fa-animation-duration, 1s);
+  -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+          animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  -webkit-animation-timing-function: var(--fa-animation-timing, ease-in-out);
+          animation-timing-function: var(--fa-animation-timing, ease-in-out);
+}
+
+.fa-shake {
+  -webkit-animation-name: fa-shake;
+          animation-name: fa-shake;
+  -webkit-animation-delay: var(--fa-animation-delay, 0);
+          animation-delay: var(--fa-animation-delay, 0);
+  -webkit-animation-direction: var(--fa-animation-direction, normal);
+          animation-direction: var(--fa-animation-direction, normal);
+  -webkit-animation-duration: var(--fa-animation-duration, 1s);
+          animation-duration: var(--fa-animation-duration, 1s);
+  -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+          animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  -webkit-animation-timing-function: var(--fa-animation-timing, linear);
+          animation-timing-function: var(--fa-animation-timing, linear);
+}
+
+.fa-spin {
+  -webkit-animation-name: fa-spin;
+          animation-name: fa-spin;
+  -webkit-animation-delay: var(--fa-animation-delay, 0);
+          animation-delay: var(--fa-animation-delay, 0);
+  -webkit-animation-direction: var(--fa-animation-direction, normal);
+          animation-direction: var(--fa-animation-direction, normal);
+  -webkit-animation-duration: var(--fa-animation-duration, 2s);
+          animation-duration: var(--fa-animation-duration, 2s);
+  -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+          animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  -webkit-animation-timing-function: var(--fa-animation-timing, linear);
+          animation-timing-function: var(--fa-animation-timing, linear);
+}
+
+.fa-spin-reverse {
+  --fa-animation-direction: reverse;
+}
+
+.fa-pulse,
+.fa-spin-pulse {
+  -webkit-animation-name: fa-spin;
+          animation-name: fa-spin;
+  -webkit-animation-direction: var(--fa-animation-direction, normal);
+          animation-direction: var(--fa-animation-direction, normal);
+  -webkit-animation-duration: var(--fa-animation-duration, 1s);
+          animation-duration: var(--fa-animation-duration, 1s);
+  -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+          animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  -webkit-animation-timing-function: var(--fa-animation-timing, steps(8));
+          animation-timing-function: var(--fa-animation-timing, steps(8));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fa-beat,
+.fa-bounce,
+.fa-fade,
+.fa-beat-fade,
+.fa-flip,
+.fa-pulse,
+.fa-shake,
+.fa-spin,
+.fa-spin-pulse {
+    -webkit-animation-delay: -1ms;
+            animation-delay: -1ms;
+    -webkit-animation-duration: 1ms;
+            animation-duration: 1ms;
+    -webkit-animation-iteration-count: 1;
+            animation-iteration-count: 1;
+    transition-delay: 0s;
+    transition-duration: 0s;
+  }
+}
+@-webkit-keyframes fa-beat {
+  0%, 90% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  45% {
+    -webkit-transform: scale(var(--fa-beat-scale, 1.25));
+            transform: scale(var(--fa-beat-scale, 1.25));
+  }
+}
+@keyframes fa-beat {
+  0%, 90% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  45% {
+    -webkit-transform: scale(var(--fa-beat-scale, 1.25));
+            transform: scale(var(--fa-beat-scale, 1.25));
+  }
+}
+@-webkit-keyframes fa-bounce {
+  0% {
+    -webkit-transform: scale(1, 1) translateY(0);
+            transform: scale(1, 1) translateY(0);
+  }
+  10% {
+    -webkit-transform: scale(var(--fa-bounce-start-scale-x, 1.1), var(--fa-bounce-start-scale-y, 0.9)) translateY(0);
+            transform: scale(var(--fa-bounce-start-scale-x, 1.1), var(--fa-bounce-start-scale-y, 0.9)) translateY(0);
+  }
+  30% {
+    -webkit-transform: scale(var(--fa-bounce-jump-scale-x, 0.9), var(--fa-bounce-jump-scale-y, 1.1)) translateY(var(--fa-bounce-height, -0.5em));
+            transform: scale(var(--fa-bounce-jump-scale-x, 0.9), var(--fa-bounce-jump-scale-y, 1.1)) translateY(var(--fa-bounce-height, -0.5em));
+  }
+  50% {
+    -webkit-transform: scale(var(--fa-bounce-land-scale-x, 1.05), var(--fa-bounce-land-scale-y, 0.95)) translateY(0);
+            transform: scale(var(--fa-bounce-land-scale-x, 1.05), var(--fa-bounce-land-scale-y, 0.95)) translateY(0);
+  }
+  57% {
+    -webkit-transform: scale(1, 1) translateY(var(--fa-bounce-rebound, -0.125em));
+            transform: scale(1, 1) translateY(var(--fa-bounce-rebound, -0.125em));
+  }
+  64% {
+    -webkit-transform: scale(1, 1) translateY(0);
+            transform: scale(1, 1) translateY(0);
+  }
+  100% {
+    -webkit-transform: scale(1, 1) translateY(0);
+            transform: scale(1, 1) translateY(0);
+  }
+}
+@keyframes fa-bounce {
+  0% {
+    -webkit-transform: scale(1, 1) translateY(0);
+            transform: scale(1, 1) translateY(0);
+  }
+  10% {
+    -webkit-transform: scale(var(--fa-bounce-start-scale-x, 1.1), var(--fa-bounce-start-scale-y, 0.9)) translateY(0);
+            transform: scale(var(--fa-bounce-start-scale-x, 1.1), var(--fa-bounce-start-scale-y, 0.9)) translateY(0);
+  }
+  30% {
+    -webkit-transform: scale(var(--fa-bounce-jump-scale-x, 0.9), var(--fa-bounce-jump-scale-y, 1.1)) translateY(var(--fa-bounce-height, -0.5em));
+            transform: scale(var(--fa-bounce-jump-scale-x, 0.9), var(--fa-bounce-jump-scale-y, 1.1)) translateY(var(--fa-bounce-height, -0.5em));
+  }
+  50% {
+    -webkit-transform: scale(var(--fa-bounce-land-scale-x, 1.05), var(--fa-bounce-land-scale-y, 0.95)) translateY(0);
+            transform: scale(var(--fa-bounce-land-scale-x, 1.05), var(--fa-bounce-land-scale-y, 0.95)) translateY(0);
+  }
+  57% {
+    -webkit-transform: scale(1, 1) translateY(var(--fa-bounce-rebound, -0.125em));
+            transform: scale(1, 1) translateY(var(--fa-bounce-rebound, -0.125em));
+  }
+  64% {
+    -webkit-transform: scale(1, 1) translateY(0);
+            transform: scale(1, 1) translateY(0);
+  }
+  100% {
+    -webkit-transform: scale(1, 1) translateY(0);
+            transform: scale(1, 1) translateY(0);
+  }
+}
+@-webkit-keyframes fa-fade {
+  50% {
+    opacity: var(--fa-fade-opacity, 0.4);
+  }
+}
+@keyframes fa-fade {
+  50% {
+    opacity: var(--fa-fade-opacity, 0.4);
+  }
+}
+@-webkit-keyframes fa-beat-fade {
+  0%, 100% {
+    opacity: var(--fa-beat-fade-opacity, 0.4);
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    -webkit-transform: scale(var(--fa-beat-fade-scale, 1.125));
+            transform: scale(var(--fa-beat-fade-scale, 1.125));
+  }
+}
+@keyframes fa-beat-fade {
+  0%, 100% {
+    opacity: var(--fa-beat-fade-opacity, 0.4);
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    -webkit-transform: scale(var(--fa-beat-fade-scale, 1.125));
+            transform: scale(var(--fa-beat-fade-scale, 1.125));
+  }
+}
+@-webkit-keyframes fa-flip {
+  50% {
+    -webkit-transform: rotate3d(var(--fa-flip-x, 0), var(--fa-flip-y, 1), var(--fa-flip-z, 0), var(--fa-flip-angle, -180deg));
+            transform: rotate3d(var(--fa-flip-x, 0), var(--fa-flip-y, 1), var(--fa-flip-z, 0), var(--fa-flip-angle, -180deg));
+  }
+}
+@keyframes fa-flip {
+  50% {
+    -webkit-transform: rotate3d(var(--fa-flip-x, 0), var(--fa-flip-y, 1), var(--fa-flip-z, 0), var(--fa-flip-angle, -180deg));
+            transform: rotate3d(var(--fa-flip-x, 0), var(--fa-flip-y, 1), var(--fa-flip-z, 0), var(--fa-flip-angle, -180deg));
+  }
+}
+@-webkit-keyframes fa-shake {
+  0% {
+    -webkit-transform: rotate(-15deg);
+            transform: rotate(-15deg);
+  }
+  4% {
+    -webkit-transform: rotate(15deg);
+            transform: rotate(15deg);
+  }
+  8%, 24% {
+    -webkit-transform: rotate(-18deg);
+            transform: rotate(-18deg);
+  }
+  12%, 28% {
+    -webkit-transform: rotate(18deg);
+            transform: rotate(18deg);
+  }
+  16% {
+    -webkit-transform: rotate(-22deg);
+            transform: rotate(-22deg);
+  }
+  20% {
+    -webkit-transform: rotate(22deg);
+            transform: rotate(22deg);
+  }
+  32% {
+    -webkit-transform: rotate(-12deg);
+            transform: rotate(-12deg);
+  }
+  36% {
+    -webkit-transform: rotate(12deg);
+            transform: rotate(12deg);
+  }
+  40%, 100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+}
+@keyframes fa-shake {
+  0% {
+    -webkit-transform: rotate(-15deg);
+            transform: rotate(-15deg);
+  }
+  4% {
+    -webkit-transform: rotate(15deg);
+            transform: rotate(15deg);
+  }
+  8%, 24% {
+    -webkit-transform: rotate(-18deg);
+            transform: rotate(-18deg);
+  }
+  12%, 28% {
+    -webkit-transform: rotate(18deg);
+            transform: rotate(18deg);
+  }
+  16% {
+    -webkit-transform: rotate(-22deg);
+            transform: rotate(-22deg);
+  }
+  20% {
+    -webkit-transform: rotate(22deg);
+            transform: rotate(22deg);
+  }
+  32% {
+    -webkit-transform: rotate(-12deg);
+            transform: rotate(-12deg);
+  }
+  36% {
+    -webkit-transform: rotate(12deg);
+            transform: rotate(12deg);
+  }
+  40%, 100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+}
+@-webkit-keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+.fa-rotate-90 {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+.fa-rotate-180 {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.fa-rotate-270 {
+  -webkit-transform: rotate(270deg);
+          transform: rotate(270deg);
+}
+
+.fa-flip-horizontal {
+  -webkit-transform: scale(-1, 1);
+          transform: scale(-1, 1);
+}
+
+.fa-flip-vertical {
+  -webkit-transform: scale(1, -1);
+          transform: scale(1, -1);
+}
+
+.fa-flip-both,
+.fa-flip-horizontal.fa-flip-vertical {
+  -webkit-transform: scale(-1, -1);
+          transform: scale(-1, -1);
+}
+
+.fa-rotate-by {
+  -webkit-transform: rotate(var(--fa-rotate-angle, none));
+          transform: rotate(var(--fa-rotate-angle, none));
+}
+
+.fa-stack {
+  display: inline-block;
+  vertical-align: middle;
+  height: 2em;
+  position: relative;
+  width: 2.5em;
+}
+
+.fa-stack-1x,
+.fa-stack-2x {
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: var(--fa-stack-z-index, auto);
+}
+
+.svg-inline--fa.fa-stack-1x {
+  height: 1em;
+  width: 1.25em;
+}
+.svg-inline--fa.fa-stack-2x {
+  height: 2em;
+  width: 2.5em;
+}
+
+.fa-inverse {
+  color: var(--fa-inverse, #fff);
+}
+
+.sr-only,
+.fa-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.sr-only-focusable:not(:focus),
+.fa-sr-only-focusable:not(:focus) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.svg-inline--fa .fa-primary {
+  fill: var(--fa-primary-color, currentColor);
+  opacity: var(--fa-primary-opacity, 1);
+}
+
+.svg-inline--fa .fa-secondary {
+  fill: var(--fa-secondary-color, currentColor);
+  opacity: var(--fa-secondary-opacity, 0.4);
+}
+
+.svg-inline--fa.fa-swap-opacity .fa-primary {
+  opacity: var(--fa-secondary-opacity, 0.4);
+}
+
+.svg-inline--fa.fa-swap-opacity .fa-secondary {
+  opacity: var(--fa-primary-opacity, 1);
+}
+
+.svg-inline--fa mask .fa-primary,
+.svg-inline--fa mask .fa-secondary {
+  fill: black;
+}
+
+.fad.fa-inverse,
+.fa-duotone.fa-inverse {
+  color: var(--fa-inverse, #fff);
+}</style><style>body {transition: opacity ease-in 0.2s; } 
+body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relative; } 
+</style>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>API Documentation</title>
+    <script src="./API Documentation_files/web-components.min.js.download"></script>
+    <link rel="stylesheet" href="./API Documentation_files/styles.min.css">
+</head>
+<body style="height: 100vh;">
+
+<elements-api apidescriptionurl="/openapi.json" router="hash" hideexport="true" logo="/push-house-logo.png"><div style="height: 100%;"><div class="" id="mosaic-provider-react-aria-0-1" style="height: 100%;"><div data-overlay-container="true" class="" style="height: 100%;"><div class="sl-elements sl-antialiased sl-h-full sl-text-base sl-font-ui sl-text-body"><div class="sl-elements-api sl-flex sl-inset-0 sl-h-full"><div class="sl-flex" style="max-width: 450px;"><div class="sl-flex sl-overflow-y-auto sl-flex-col sl-sticky sl-inset-y-0 sl-pt-8 sl-bg-canvas-100 sl-border-r" style="padding-left: calc(50% - 900px); width: 300px; min-width: 300px;"><div class="sl-flex sl-items-center sl-mb-5 sl-ml-4"><div class="sl-inline sl-overflow-x-hidden sl-overflow-y-hidden sl-mr-3 sl-rounded-lg" style="background-color: transparent;"><img src="./API Documentation_files/push-house-logo.png" height="30px" width="30px" alt="logo"></div><h4 class="sl-text-paragraph sl-leading-snug sl-font-prose sl-font-semibold sl-text-heading">Push House</h4></div><div class="sl-flex sl-overflow-y-auto sl-flex-col sl-flex-grow sl-flex-shrink"><div class="sl-overflow-y-auto sl-w-full sl-bg-canvas-100"><div class="sl-my-3"><div><a class="ElementsTableOfContentsItem sl-block sl-no-underline" href="https://api.push.house/#/"><div id="sl-toc-/" title="Overview" class="sl-flex sl-items-center sl-h-md sl-pr-4 sl-pl-4 sl-bg-canvas-100 hover:sl-bg-canvas-200 sl-cursor-pointer sl-select-none"><div class="sl-flex-1 sl-items-center sl-text-base sl-truncate">Overview</div><div class="sl-flex sl-items-center sl-text-xs"></div></div></a><div class="sl-text-sm sl-leading-relaxed sl-tracking-wide sl-font-bold sl-uppercase sl-mt-6 sl-mb-2 sl-pl-4">Endpoints</div><div title="Audience" class="sl-flex sl-items-center sl-h-md sl-pr-4 sl-pl-4 sl-bg-canvas-100 hover:sl-bg-canvas-200 sl-cursor-pointer sl-select-none"><div class="sl-flex-1 sl-items-center sl-text-base sl-truncate sl-mr-1.5">Audience</div><div class="sl-flex sl-items-center sl-text-xs"><div class="sl-flex sl-items-center"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-down" class="svg-inline--fa fa-chevron-down fa-fw sl-icon sl-text-muted" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M224 416c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L224 338.8l169.4-169.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-192 192C240.4 412.9 232.2 416 224 416z"></path></svg></div></div></div><a class="ElementsTableOfContentsItem sl-block sl-no-underline" href="https://api.push.house/#/paths/v1-audiences/get"><div id="sl-toc-/paths/v1-audiences/get" title="List all audiences" class="sl-flex sl-items-center sl-h-md sl-pr-4 sl-pl-8 sl-bg-primary-tint sl-cursor-pointer sl-select-none"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bullseye" class="svg-inline--fa fa-bullseye sl-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="color: rgb(151, 71, 255);"><path fill="currentColor" d="M288 256C288 273.7 273.7 288 256 288C238.3 288 224 273.7 224 256C224 238.3 238.3 224 256 224C273.7 224 288 238.3 288 256zM112 256C112 176.5 176.5 112 256 112C335.5 112 400 176.5 400 256C400 335.5 335.5 400 256 400C176.5 400 112 335.5 112 256zM256 336C300.2 336 336 300.2 336 256C336 211.8 300.2 176 256 176C211.8 176 176 211.8 176 256C176 300.2 211.8 336 256 336zM512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM256 64C149.1 64 64 149.1 64 256C64 362 149.1 448 256 448C362 448 448 362 448 256C448 149.1 362 64 256 64z"></path></svg><div class="sl-flex-1 sl-items-center sl-text-base sl-truncate sl-mr-1.5 sl-ml-1.5">List all audiences</div><div class="sl-flex sl-items-center sl-text-xs"><div class="sl-font-medium sl-uppercase sl-text-success">get</div></div></div></a><a class="ElementsTableOfContentsItem sl-block sl-no-underline" href="https://api.push.house/#/paths/v1-audience/post"><div id="sl-toc-/paths/v1-audience/post" title="Create an audience" class="sl-flex sl-items-center sl-h-md sl-pr-4 sl-pl-8 sl-bg-canvas-100 hover:sl-bg-canvas-200 sl-cursor-pointer sl-select-none"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bullseye" class="svg-inline--fa fa-bullseye sl-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="color: rgb(151, 71, 255);"><path fill="currentColor" d="M288 256C288 273.7 273.7 288 256 288C238.3 288 224 273.7 224 256C224 238.3 238.3 224 256 224C273.7 224 288 238.3 288 256zM112 256C112 176.5 176.5 112 256 112C335.5 112 400 176.5 400 256C400 335.5 335.5 400 256 400C176.5 400 112 335.5 112 256zM256 336C300.2 336 336 300.2 336 256C336 211.8 300.2 176 256 176C211.8 176 176 211.8 176 256C176 300.2 211.8 336 256 336zM512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM256 64C149.1 64 64 149.1 64 256C64 362 149.1 448 256 448C362 448 448 362 448 256C448 149.1 362 64 256 64z"></path></svg><div class="sl-flex-1 sl-items-center sl-text-base sl-truncate sl-mr-1.5 sl-ml-1.5">Create an audience</div><div class="sl-flex sl-items-center sl-text-xs"><div class="sl-font-medium sl-uppercase sl-text-primary">post</div></div></div></a><a class="ElementsTableOfContentsItem sl-block sl-no-underline" href="https://api.push.house/#/paths/v1-audience-id/get"><div id="sl-toc-/paths/v1-audience-id/get" title="Get an audience" class="sl-flex sl-items-center sl-h-md sl-pr-4 sl-pl-8 sl-bg-canvas-100 hover:sl-bg-canvas-200 sl-cursor-pointer sl-select-none"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bullseye" class="svg-inline--fa fa-bullseye sl-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="color: rgb(151, 71, 255);"><path fill="currentColor" d="M288 256C288 273.7 273.7 288 256 288C238.3 288 224 273.7 224 256C224 238.3 238.3 224 256 224C273.7 224 288 238.3 288 256zM112 256C112 176.5 176.5 112 256 112C335.5 112 400 176.5 400 256C400 335.5 335.5 400 256 400C176.5 400 112 335.5 112 256zM256 336C300.2 336 336 300.2 336 256C336 211.8 300.2 176 256 176C211.8 176 176 211.8 176 256C176 300.2 211.8 336 256 336zM512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM256 64C149.1 64 64 149.1 64 256C64 362 149.1 448 256 448C362 448 448 362 448 256C448 149.1 362 64 256 64z"></path></svg><div class="sl-flex-1 sl-items-center sl-text-base sl-truncate sl-mr-1.5 sl-ml-1.5">Get an audience</div><div class="sl-flex sl-items-center sl-text-xs"><div class="sl-font-medium sl-uppercase sl-text-success">get</div></div></div></a><a class="ElementsTableOfContentsItem sl-block sl-no-underline" href="https://api.push.house/#/paths/v1-audience-id/patch"><div id="sl-toc-/paths/v1-audience-id/patch" title="Update an audience" class="sl-flex sl-items-center sl-h-md sl-pr-4 sl-pl-8 sl-bg-canvas-100 hover:sl-bg-canvas-200 sl-cursor-pointer sl-select-none"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bullseye" class="svg-inline--fa fa-bullseye sl-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="color: rgb(151, 71, 255);"><path fill="currentColor" d="M288 256C288 273.7 273.7 288 256 288C238.3 288 224 273.7 224 256C224 238.3 238.3 224 256 224C273.7 224 288 238.3 288 256zM112 256C112 176.5 176.5 112 256 112C335.5 112 400 176.5 400 256C400 335.5 335.5 400 256 400C176.5 400 112 335.5 112 256zM256 336C300.2 336 336 300.2 336 256C336 211.8 300.2 176 256 176C211.8 176 176 211.8 176 256C176 300.2 211.8 336 256 336zM512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM256 64C149.1 64 64 149.1 64 256C64 362 149.1 448 256 448C362 448 448 362 448 256C448 149.1 362 64 256 64z"></path></svg><div class="sl-flex-1 sl-items-center sl-text-base sl-truncate sl-mr-1.5 sl-ml-1.5">Update an audience</div><div class="sl-flex sl-items-center sl-text-xs"><div class="sl-font-medium sl-uppercase sl-text-warning">patch</div></div></div></a><a class="ElementsTableOfContentsItem sl-block sl-no-underline" href="https://api.push.house/#/paths/v1-audience-id/delete"><div id="sl-toc-/paths/v1-audience-id/delete" title="Delete an audience" class="sl-flex sl-items-center sl-h-md sl-pr-4 sl-pl-8 sl-bg-canvas-100 hover:sl-bg-canvas-200 sl-cursor-pointer sl-select-none"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bullseye" class="svg-inline--fa fa-bullseye sl-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="color: rgb(151, 71, 255);"><path fill="currentColor" d="M288 256C288 273.7 273.7 288 256 288C238.3 288 224 273.7 224 256C224 238.3 238.3 224 256 224C273.7 224 288 238.3 288 256zM112 256C112 176.5 176.5 112 256 112C335.5 112 400 176.5 400 256C400 335.5 335.5 400 256 400C176.5 400 112 335.5 112 256zM256 336C300.2 336 336 300.2 336 256C336 211.8 300.2 176 256 176C211.8 176 176 211.8 176 256C176 300.2 211.8 336 256 336zM512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM256 64C149.1 64 64 149.1 64 256C64 362 149.1 448 256 448C362 448 448 362 448 256C448 149.1 362 64 256 64z"></path></svg><div class="sl-flex-1 sl-items-center sl-text-base sl-truncate sl-mr-1.5 sl-ml-1.5">Delete an audience</div><div class="sl-flex sl-items-center sl-text-xs"><div class="sl-font-medium sl-uppercase sl-text-danger">delete</div></div></div></a><a class="ElementsTableOfContentsItem sl-block sl-no-underline" href="https://api.push.house/#/paths/v1-audience-id--clone/post"><div id="sl-toc-/paths/v1-audience-id--clone/post" title="Clone an audience" class="sl-flex sl-items-center sl-h-md sl-pr-4 sl-pl-8 sl-bg-canvas-100 hover:sl-bg-canvas-200 sl-cursor-pointer sl-select-none"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bullseye" class="svg-inline--fa fa-bullseye sl-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="color: rgb(151, 71, 255);"><path fill="currentColor" d="M288 256C288 273.7 273.7 288 256 288C238.3 288 224 273.7 224 256C224 238.3 238.3 224 256 224C273.7 224 288 238.3 288 256zM112 256C112 176.5 176.5 112 256 112C335.5 112 400 176.5 400 256C400 335.5 335.5 400 256 400C176.5 400 112 335.5 112 256zM256 336C300.2 336 336 300.2 336 256C336 211.8 300.2 176 256 176C211.8 176 176 211.8 176 256C176 300.2 211.8 336 256 336zM512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM256 64C149.1 64 64 149.1 64 256C64 362 149.1 448 256 448C362 448 448 362 448 256C448 149.1 362 64 256 64z"></path></svg><div class="sl-flex-1 sl-items-center sl-text-base sl-truncate sl-mr-1.5 sl-ml-1.5">Clone an audience</div><div class="sl-flex sl-items-center sl-text-xs"><div class="sl-font-medium sl-uppercase sl-text-primary">post</div></div></div></a><div title="Group" class="sl-flex sl-items-center sl-h-md sl-pr-4 sl-pl-4 sl-bg-canvas-100 hover:sl-bg-canvas-200 sl-cursor-pointer sl-select-none"><div class="sl-flex-1 sl-items-center sl-text-base sl-truncate sl-mr-1.5">Group</div><div class="sl-flex sl-items-center sl-text-xs"><div class="sl-flex sl-items-center"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right" class="svg-inline--fa fa-chevron-right fa-fw sl-icon sl-text-muted" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M96 480c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L242.8 256L73.38 86.63c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l192 192c12.5 12.5 12.5 32.75 0 45.25l-192 192C112.4 476.9 104.2 480 96 480z"></path></svg></div></div></div><div title="Campaign" class="sl-flex sl-items-center sl-h-md sl-pr-4 sl-pl-4 sl-bg-canvas-100 hover:sl-bg-canvas-200 sl-cursor-pointer sl-select-none"><div class="sl-flex-1 sl-items-center sl-text-base sl-truncate sl-mr-1.5">Campaign</div><div class="sl-flex sl-items-center sl-text-xs"><div class="sl-flex sl-items-center"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right" class="svg-inline--fa fa-chevron-right fa-fw sl-icon sl-text-muted" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M96 480c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L242.8 256L73.38 86.63c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l192 192c12.5 12.5 12.5 32.75 0 45.25l-192 192C112.4 476.9 104.2 480 96 480z"></path></svg></div></div></div><div title="Collections" class="sl-flex sl-items-center sl-h-md sl-pr-4 sl-pl-4 sl-bg-canvas-100 hover:sl-bg-canvas-200 sl-cursor-pointer sl-select-none"><div class="sl-flex-1 sl-items-center sl-text-base sl-truncate sl-mr-1.5">Collections</div><div class="sl-flex sl-items-center sl-text-xs"><div class="sl-flex sl-items-center"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right" class="svg-inline--fa fa-chevron-right fa-fw sl-icon sl-text-muted" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M96 480c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L242.8 256L73.38 86.63c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l192 192c12.5 12.5 12.5 32.75 0 45.25l-192 192C112.4 476.9 104.2 480 96 480z"></path></svg></div></div></div><div title="User Info" class="sl-flex sl-items-center sl-h-md sl-pr-4 sl-pl-4 sl-bg-canvas-100 hover:sl-bg-canvas-200 sl-cursor-pointer sl-select-none"><div class="sl-flex-1 sl-items-center sl-text-base sl-truncate sl-mr-1.5">User Info</div><div class="sl-flex sl-items-center sl-text-xs"><div class="sl-flex sl-items-center"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right" class="svg-inline--fa fa-chevron-right fa-fw sl-icon sl-text-muted" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M96 480c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L242.8 256L73.38 86.63c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l192 192c12.5 12.5 12.5 32.75 0 45.25l-192 192C112.4 476.9 104.2 480 96 480z"></path></svg></div></div></div><div title="Statistics" class="sl-flex sl-items-center sl-h-md sl-pr-4 sl-pl-4 sl-bg-canvas-100 hover:sl-bg-canvas-200 sl-cursor-pointer sl-select-none"><div class="sl-flex-1 sl-items-center sl-text-base sl-truncate sl-mr-1.5">Statistics</div><div class="sl-flex sl-items-center sl-text-xs"><div class="sl-flex sl-items-center"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right" class="svg-inline--fa fa-chevron-right fa-fw sl-icon sl-text-muted" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M96 480c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L242.8 256L73.38 86.63c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l192 192c12.5 12.5 12.5 32.75 0 45.25l-192 192C112.4 476.9 104.2 480 96 480z"></path></svg></div></div></div></div></div></div></div><a href="https://stoplight.io/?utm_source=elements&amp;utm_medium=Push%20House&amp;utm_campaign=powered_by&amp;utm_content=/paths/v1-audiences/get" target="_blank" rel="noopener noreferrer" class="sl-flex sl-items-center sl-px-4 sl-py-3 sl-border-t"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bolt" class="svg-inline--fa fa-bolt sl-icon fa-fw sl-mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" style="color: rgb(144, 97, 249);"><path fill="currentColor" d="M240.5 224H352C365.3 224 377.3 232.3 381.1 244.7C386.6 257.2 383.1 271.3 373.1 280.1L117.1 504.1C105.8 513.9 89.27 514.7 77.19 505.9C65.1 497.1 60.7 481.1 66.59 467.4L143.5 288H31.1C18.67 288 6.733 279.7 2.044 267.3C-2.645 254.8 .8944 240.7 10.93 231.9L266.9 7.918C278.2-1.92 294.7-2.669 306.8 6.114C318.9 14.9 323.3 30.87 317.4 44.61L240.5 224z"></path></svg><div>powered by&nbsp;<strong>Stoplight</strong></div></a></div><div class="sl-flex sl-flex-grow-0 sl-flex-shrink-0 sl-justify-self-end sl-resize-x" style="width: 1em; flex-basis: 6px; cursor: ew-resize;"></div></div><div class="sl-overflow-y-auto sl-flex-1 sl-w-full sl-px-24 sl-bg-canvas"><div class="sl-py-16" style="max-width: 1500px;"><div class="sl-stack sl-stack--vertical sl-stack--8 HttpOperation sl-flex sl-flex-col sl-items-stretch sl-w-full"><div class="sl-stack sl-stack--vertical sl-stack--5 sl-flex sl-flex-col sl-items-stretch"><div class="sl-relative"><div class="sl-stack sl-stack--horizontal sl-stack--5 sl-flex sl-flex-row sl-items-center"><h1 class="sl-text-5xl sl-leading-tight sl-font-prose sl-font-semibold sl-text-heading">List all audiences</h1><div class="sl-stack sl-stack--horizontal sl-stack--2 sl-flex sl-flex-row sl-items-center"></div></div></div><div class="sl-relative"><div><div title="/v1/audiences" class="sl-stack sl-stack--horizontal sl-stack--3 sl-inline-flex sl-flex-row sl-items-center sl-max-w-full sl-font-mono sl-py-2 sl-pr-4 sl-pl-2.5 sl-bg-canvas-50 sl-rounded-lg"><div class="sl-text-lg sl-font-semibold sl-uppercase sl-px-2.5 sl-py-1 sl-bg-success sl-text-on-primary sl-rounded-lg">get</div><div class="sl-flex sl-overflow-x-hidden sl-text-lg sl-select-all"><div dir="ltr" class="sl-overflow-x-hidden sl-truncate"><span dir="ltr" class="sl-text-muted" style="unicode-bidi: bidi-override;"></span><span class="sl-flex-1 sl-font-semibold">/v1/audiences</span></div></div></div></div></div></div><div class="sl-flex"><div data-testid="two-column-left" class="sl-flex-1 sl-w-0"><div class="sl-stack sl-stack--vertical sl-stack--10 sl-flex sl-flex-col sl-items-stretch"><div class="sl-stack sl-stack--vertical sl-stack--8 sl-flex sl-flex-col sl-items-stretch"><div class="sl-flex sl-w-full"><h2 id="/paths/v1-audiences/get#Request" aria-label="Request" class="sl-link-heading sl-py-1 sl-pr-6 sl-text-4xl sl-leading-tight sl-font-prose sl-font-bold sl-text-heading"><a href="https://api.push.house/#/paths/v1-audiences/get#Request" class="sl-link sl-link-heading__link sl-inline-flex sl-items-center sl-text-current"><div>Request</div><div class="sl-link-heading__icon sl-text-base sl-ml-4 sl-text-muted"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="link" class="svg-inline--fa fa-link sl-icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M172.5 131.1C228.1 75.51 320.5 75.51 376.1 131.1C426.1 181.1 433.5 260.8 392.4 318.3L391.3 319.9C381 334.2 361 337.6 346.7 327.3C332.3 317 328.9 297 339.2 282.7L340.3 281.1C363.2 249 359.6 205.1 331.7 177.2C300.3 145.8 249.2 145.8 217.7 177.2L105.5 289.5C73.99 320.1 73.99 372 105.5 403.5C133.3 431.4 177.3 435 209.3 412.1L210.9 410.1C225.3 400.7 245.3 404 255.5 418.4C265.8 432.8 262.5 452.8 248.1 463.1L246.5 464.2C188.1 505.3 110.2 498.7 60.21 448.8C3.741 392.3 3.741 300.7 60.21 244.3L172.5 131.1zM467.5 380C411 436.5 319.5 436.5 263 380C213 330 206.5 251.2 247.6 193.7L248.7 192.1C258.1 177.8 278.1 174.4 293.3 184.7C307.7 194.1 311.1 214.1 300.8 229.3L299.7 230.9C276.8 262.1 280.4 306.9 308.3 334.8C339.7 366.2 390.8 366.2 422.3 334.8L534.5 222.5C566 191 566 139.1 534.5 108.5C506.7 80.63 462.7 76.99 430.7 99.9L429.1 101C414.7 111.3 394.7 107.1 384.5 93.58C374.2 79.2 377.5 59.21 391.9 48.94L393.5 47.82C451 6.731 529.8 13.25 579.8 63.24C636.3 119.7 636.3 211.3 579.8 267.7L467.5 380z"></path></svg></div></a></h2><div class="sl-flex sl-flex-grow sl-self-center sl-py-1" style="min-width: 0px;"></div></div><div class="sl-stack sl-stack--vertical sl-stack--3 sl-flex sl-flex-col sl-items-stretch"><div data-test="http-operation-security-row" class="sl-relative sl-p-0"><div class="sl-panel sl-outline-none sl-w-full sl-rounded-lg sl-border"><div aria-expanded="false" tabindex="0" class="sl-panel__titlebar sl-flex sl-items-center sl-relative focus:sl-z-10 sl-text-base sl-leading-none sl-font-medium sl-pr-4 sl-pl-3 sl-border-input focus:sl-border-primary sl-cursor-pointer sl-select-none" role="button"><div class="sl-flex sl-flex-1 sl-items-center sl-h-lg"><div class="sl-flex sl-items-center sl-mr-1.5"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right" class="svg-inline--fa fa-chevron-right fa-fw fa-sm sl-icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M96 480c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L242.8 256L73.38 86.63c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l192 192c12.5 12.5 12.5 32.75 0 45.25l-192 192C112.4 476.9 104.2 480 96 480z"></path></svg></div><div role="heading">Security: API Key</div></div></div></div></div></div><div class="sl-stack sl-stack--vertical sl-stack--5 sl-flex sl-flex-col sl-items-stretch"><div class="sl-flex sl-w-full"><h3 id="/paths/v1-audiences/get#Query-Parameters" aria-label="Query Parameters" class="sl-link-heading sl-py-1 sl-pr-6 sl-text-2xl sl-leading-snug sl-font-prose sl-font-semibold sl-text-heading"><a href="https://api.push.house/#/paths/v1-audiences/get#Query-Parameters" class="sl-link sl-link-heading__link sl-inline-flex sl-items-center sl-text-current"><div>Query Parameters</div><div class="sl-link-heading__icon sl-text-base sl-ml-4 sl-text-muted"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="link" class="svg-inline--fa fa-link sl-icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M172.5 131.1C228.1 75.51 320.5 75.51 376.1 131.1C426.1 181.1 433.5 260.8 392.4 318.3L391.3 319.9C381 334.2 361 337.6 346.7 327.3C332.3 317 328.9 297 339.2 282.7L340.3 281.1C363.2 249 359.6 205.1 331.7 177.2C300.3 145.8 249.2 145.8 217.7 177.2L105.5 289.5C73.99 320.1 73.99 372 105.5 403.5C133.3 431.4 177.3 435 209.3 412.1L210.9 410.1C225.3 400.7 245.3 404 255.5 418.4C265.8 432.8 262.5 452.8 248.1 463.1L246.5 464.2C188.1 505.3 110.2 498.7 60.21 448.8C3.741 392.3 3.741 300.7 60.21 244.3L172.5 131.1zM467.5 380C411 436.5 319.5 436.5 263 380C213 330 206.5 251.2 247.6 193.7L248.7 192.1C258.1 177.8 278.1 174.4 293.3 184.7C307.7 194.1 311.1 214.1 300.8 229.3L299.7 230.9C276.8 262.1 280.4 306.9 308.3 334.8C339.7 366.2 390.8 366.2 422.3 334.8L534.5 222.5C566 191 566 139.1 534.5 108.5C506.7 80.63 462.7 76.99 430.7 99.9L429.1 101C414.7 111.3 394.7 107.1 384.5 93.58C374.2 79.2 377.5 59.21 391.9 48.94L393.5 47.82C451 6.731 529.8 13.25 579.8 63.24C636.3 119.7 636.3 211.3 579.8 267.7L467.5 380z"></path></svg></div></a></h3><div class="sl-flex sl-flex-grow sl-self-center sl-py-1" style="min-width: 0px;"></div></div><div class="" id="mosaic-provider-react-aria-1-1"><div data-overlay-container="true" class=""><div class="JsonSchemaViewer"><div></div><div data-level="0" class="sl-text-sm"><div data-id="51f7e623c57d7" data-test="schema-row" class="sl-flex sl-relative sl-max-w-full sl-py-2"><div class="sl-stack sl-stack--vertical sl-stack--1 sl-flex sl-flex-1 sl-flex-col sl-items-stretch sl-max-w-full"><div class="sl-flex sl-items-center sl-max-w-full"><div class="sl-flex sl-items-baseline sl-text-base"><div data-test="property-name-limit" class="sl-font-mono sl-font-semibold sl-mr-2">limit</div><span data-test="property-type" class="sl-truncate sl-text-muted">integer</span></div></div></div></div><div data-id="74f76a219b501" data-test="schema-row" class="sl-flex sl-relative sl-max-w-full sl-py-2"><div class="sl-stack sl-stack--vertical sl-stack--1 sl-flex sl-flex-1 sl-flex-col sl-items-stretch sl-max-w-full"><div class="sl-flex sl-items-center sl-max-w-full"><div class="sl-flex sl-items-baseline sl-text-base"><div data-test="property-name-offset" class="sl-font-mono sl-font-semibold sl-mr-2">offset</div><span data-test="property-type" class="sl-truncate sl-text-muted">integer</span></div></div></div></div><div data-id="796e1b9c90ee8" data-test="schema-row" class="sl-flex sl-relative sl-max-w-full sl-py-2"><div class="sl-stack sl-stack--vertical sl-stack--1 sl-flex sl-flex-1 sl-flex-col sl-items-stretch sl-max-w-full"><div class="sl-flex sl-items-center sl-max-w-full"><div class="sl-flex sl-items-baseline sl-text-base"><div data-test="property-name-search" class="sl-font-mono sl-font-semibold sl-mr-2">search</div><span data-test="property-type" class="sl-truncate sl-text-muted">string</span></div></div></div></div></div></div></div></div></div></div><div class="sl-stack sl-stack--vertical sl-stack--1 sl-flex sl-flex-col sl-w-full sl-h-auto"><div class="sl-flex sl-w-full"><h2 id="/paths/v1-audiences/get#Responses" aria-label="Responses" class="sl-link-heading sl-py-1 sl-pr-6 sl-text-4xl sl-leading-tight sl-font-prose sl-font-bold sl-text-heading"><a href="https://api.push.house/#/paths/v1-audiences/get#Responses" class="sl-link sl-link-heading__link sl-inline-flex sl-items-center sl-text-current"><div>Responses</div><div class="sl-link-heading__icon sl-text-base sl-ml-4 sl-text-muted"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="link" class="svg-inline--fa fa-link sl-icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M172.5 131.1C228.1 75.51 320.5 75.51 376.1 131.1C426.1 181.1 433.5 260.8 392.4 318.3L391.3 319.9C381 334.2 361 337.6 346.7 327.3C332.3 317 328.9 297 339.2 282.7L340.3 281.1C363.2 249 359.6 205.1 331.7 177.2C300.3 145.8 249.2 145.8 217.7 177.2L105.5 289.5C73.99 320.1 73.99 372 105.5 403.5C133.3 431.4 177.3 435 209.3 412.1L210.9 410.1C225.3 400.7 245.3 404 255.5 418.4C265.8 432.8 262.5 452.8 248.1 463.1L246.5 464.2C188.1 505.3 110.2 498.7 60.21 448.8C3.741 392.3 3.741 300.7 60.21 244.3L172.5 131.1zM467.5 380C411 436.5 319.5 436.5 263 380C213 330 206.5 251.2 247.6 193.7L248.7 192.1C258.1 177.8 278.1 174.4 293.3 184.7C307.7 194.1 311.1 214.1 300.8 229.3L299.7 230.9C276.8 262.1 280.4 306.9 308.3 334.8C339.7 366.2 390.8 366.2 422.3 334.8L534.5 222.5C566 191 566 139.1 534.5 108.5C506.7 80.63 462.7 76.99 430.7 99.9L429.1 101C414.7 111.3 394.7 107.1 384.5 93.58C374.2 79.2 377.5 59.21 391.9 48.94L393.5 47.82C451 6.731 529.8 13.25 579.8 63.24C636.3 119.7 636.3 211.3 579.8 267.7L467.5 380z"></path></svg></div></a></h2><div class="sl-flex sl-flex-grow sl-self-center sl-py-1" style="min-width: 0px;"><div id="react-aria-1-6" aria-orientation="horizontal" class="sl-stack sl-stack--horizontal sl-stack--2 sl-flex sl-overflow-x-auto sl-overflow-y-hidden sl-flex-row sl-h-auto sl-text-lg" role="tablist"><div tabindex="0" data-key="200" id="react-aria-1-6-tab-200" aria-selected="true" aria-controls="react-aria-1-6-tabpanel-200" class="sl-font-medium sl-p-1 sl-px-2 sl-py-1 sl-bg-success sl-text-on-primary sl-rounded-lg sl-border-light sl-cursor" role="tab">200</div></div></div></div><div id="undefined-tabpanel-undefined" aria-labelledby="react-aria-1-6-tab-200" class="sl-flex-1 sl-py-0" role="tabpanel"><div class="sl-stack sl-stack--vertical sl-stack--8 sl-flex sl-flex-col sl-items-stretch sl-pt-8"><div class="sl-relative"><div class="sl-prose sl-markdown-viewer "><p>Get user audiences</p></div></div><div class="sl-flex sl-w-full"><h3 id="/paths/v1-audiences/get#response-body" aria-label="Body" class="sl-link-heading sl-py-1 sl-pr-6 sl-text-2xl sl-leading-snug sl-font-prose sl-font-semibold sl-text-heading"><a href="https://api.push.house/#/paths/v1-audiences/get#response-body" class="sl-link sl-link-heading__link sl-inline-flex sl-items-center sl-text-current"><div>Body</div><div class="sl-link-heading__icon sl-text-base sl-ml-4 sl-text-muted"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="link" class="svg-inline--fa fa-link sl-icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M172.5 131.1C228.1 75.51 320.5 75.51 376.1 131.1C426.1 181.1 433.5 260.8 392.4 318.3L391.3 319.9C381 334.2 361 337.6 346.7 327.3C332.3 317 328.9 297 339.2 282.7L340.3 281.1C363.2 249 359.6 205.1 331.7 177.2C300.3 145.8 249.2 145.8 217.7 177.2L105.5 289.5C73.99 320.1 73.99 372 105.5 403.5C133.3 431.4 177.3 435 209.3 412.1L210.9 410.1C225.3 400.7 245.3 404 255.5 418.4C265.8 432.8 262.5 452.8 248.1 463.1L246.5 464.2C188.1 505.3 110.2 498.7 60.21 448.8C3.741 392.3 3.741 300.7 60.21 244.3L172.5 131.1zM467.5 380C411 436.5 319.5 436.5 263 380C213 330 206.5 251.2 247.6 193.7L248.7 192.1C258.1 177.8 278.1 174.4 293.3 184.7C307.7 194.1 311.1 214.1 300.8 229.3L299.7 230.9C276.8 262.1 280.4 306.9 308.3 334.8C339.7 366.2 390.8 366.2 422.3 334.8L534.5 222.5C566 191 566 139.1 534.5 108.5C506.7 80.63 462.7 76.99 430.7 99.9L429.1 101C414.7 111.3 394.7 107.1 384.5 93.58C374.2 79.2 377.5 59.21 391.9 48.94L393.5 47.82C451 6.731 529.8 13.25 579.8 63.24C636.3 119.7 636.3 211.3 579.8 267.7L467.5 380z"></path></svg></div></a></h3><div class="sl-flex sl-flex-grow sl-self-center sl-py-1" style="min-width: 0px;"><div class="sl-flex sl-flex-1 sl-justify-end"><div class="sl-select sl-relative"><div aria-hidden="true" style="border: 0px; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); height: 1px; margin: 0px -1px -1px 0px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"><input type="text" tabindex="0" style="font-size: 16px;"><label><select size="1" tabindex="-1"><option></option><option value="0">application/json</option></select></label></div><div class="sl-relative"><button aria-label="Response Body Content Type" aria-haspopup="listbox" aria-expanded="false" id="react-aria-1-10" aria-labelledby="react-aria-1-10 react-aria-1-12" type="button" class="sl-button sl-form-group-border sl-w-full sl-h-sm sl-text-base sl-font-normal sl-px-1.5 sl-bg-transparent sl-rounded sl-border-transparent hover:sl-border-input focus:sl-border-primary active:sl-border-primary sl-border disabled:sl-opacity-60"><div class="sl-flex sl-flex-1 sl-justify-items-start sl-items-center"><div class="sl-pr-1">application/json</div></div><div class="sl-text-xs sl--mr-0.5 sl-ml-1"><div class="sl-pt-0.5 sl-pr-0.5"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-down" class="svg-inline--fa fa-chevron-down fa-xs sl-icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M224 416c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L224 338.8l169.4-169.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-192 192C240.4 412.9 232.2 416 224 416z"></path></svg></div></div></button></div></div></div></div></div><div class="" id="mosaic-provider-react-aria-2-1"><div data-overlay-container="true" class=""><div class="JsonSchemaViewer"><div class="sl-stack sl-stack--horizontal sl-stack--1 sl-flex sl-flex-row sl-items-center sl-sticky sl-top-0 sl-z-10 sl-h-md sl-text-sm sl-leading-none sl-font-mono sl--mt-8 sl-px-px sl-bg-canvas-pure sl-text-light sl-border-b"><div>responses</div><div>/</div><div>200</div></div><div></div><div data-level="0" class="sl-text-sm sl-ml-px sl-border-l"><div data-id="ef699fc3256a7" data-test="schema-row" class="sl-flex sl-relative sl-max-w-full sl-py-2 sl-pl-3"><div class="sl-w-1 sl-mt-2 sl-mr-3 sl--ml-3 sl-border-t"></div><div class="sl-stack sl-stack--vertical sl-stack--1 sl-flex sl-flex-1 sl-flex-col sl-items-stretch sl-max-w-full sl-ml-2"><div class="sl-flex sl-items-center sl-max-w-full sl-cursor-pointer"><div class="sl-flex sl-justify-center sl-w-8 sl--ml-8 sl-pl-3 sl-text-muted" role="button"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-down" class="svg-inline--fa fa-chevron-down fa-fw fa-sm sl-icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M224 416c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L224 338.8l169.4-169.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-192 192C240.4 412.9 232.2 416 224 416z"></path></svg></div><div class="sl-flex sl-items-baseline sl-text-base"><div data-test="property-name-data" class="sl-font-mono sl-font-semibold sl-mr-2">data</div><span data-test="property-type" class="sl-truncate sl-text-muted">array[object]</span></div></div></div></div><div data-level="1" class="sl-text-sm sl-ml-7 sl-border-l"><div data-id="e1064da4db1d2" data-test="schema-row" class="sl-flex sl-relative sl-max-w-full sl-py-2 sl-pl-3"><div class="sl-w-3 sl-mt-2 sl-mr-3 sl--ml-3 sl-border-t"></div><div class="sl-stack sl-stack--vertical sl-stack--1 sl-flex sl-flex-1 sl-flex-col sl-items-stretch sl-max-w-full"><div class="sl-flex sl-items-center sl-max-w-full"><div class="sl-flex sl-items-baseline sl-text-base"><div data-test="property-name-id" class="sl-font-mono sl-font-semibold sl-mr-2">id</div><span data-test="property-type" class="sl-truncate sl-text-muted">number</span></div></div><div data-test="property-validation" class="sl-stack sl-stack--horizontal sl-stack--2 sl-flex sl-flex-row sl-items-baseline sl-text-muted"><span>Example:</span><div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;"><span class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">1</span></div></div></div></div><div data-id="aa6601ba282ea" data-test="schema-row" class="sl-flex sl-relative sl-max-w-full sl-py-2 sl-pl-3"><div class="sl-w-3 sl-mt-2 sl-mr-3 sl--ml-3 sl-border-t"></div><div class="sl-stack sl-stack--vertical sl-stack--1 sl-flex sl-flex-1 sl-flex-col sl-items-stretch sl-max-w-full"><div class="sl-flex sl-items-center sl-max-w-full"><div class="sl-flex sl-items-baseline sl-text-base"><div data-test="property-name-name" class="sl-font-mono sl-font-semibold sl-mr-2">name</div><span data-test="property-type" class="sl-truncate sl-text-muted">string</span></div></div><div data-test="property-validation" class="sl-stack sl-stack--horizontal sl-stack--2 sl-flex sl-flex-row sl-items-baseline sl-text-muted"><span>Example:</span><div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;"><span class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">test</span></div></div></div></div><div data-id="e048456c2a63b" data-test="schema-row" class="sl-flex sl-relative sl-max-w-full sl-py-2 sl-pl-3"><div class="sl-w-1 sl-mt-2 sl-mr-3 sl--ml-3 sl-border-t"></div><div class="sl-stack sl-stack--vertical sl-stack--1 sl-flex sl-flex-1 sl-flex-col sl-items-stretch sl-max-w-full sl-ml-2"><div class="sl-flex sl-items-center sl-max-w-full sl-cursor-pointer"><div class="sl-flex sl-justify-center sl-w-8 sl--ml-8 sl-pl-3 sl-text-muted" role="button"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right" class="svg-inline--fa fa-chevron-right fa-fw fa-sm sl-icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M96 480c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L242.8 256L73.38 86.63c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l192 192c12.5 12.5 12.5 32.75 0 45.25l-192 192C112.4 476.9 104.2 480 96 480z"></path></svg></div><div class="sl-flex sl-items-baseline sl-text-base"><div data-test="property-name-subaccs" class="sl-font-mono sl-font-semibold sl-mr-2">subaccs</div><span data-test="property-type" class="sl-truncate sl-text-muted">object</span></div></div></div></div><div data-id="f3f5ef1df05fc" data-test="schema-row" class="sl-flex sl-relative sl-max-w-full sl-py-2 sl-pl-3"><div class="sl-w-1 sl-mt-2 sl-mr-3 sl--ml-3 sl-border-t"></div><div class="sl-stack sl-stack--vertical sl-stack--1 sl-flex sl-flex-1 sl-flex-col sl-items-stretch sl-max-w-full sl-ml-2"><div class="sl-flex sl-items-center sl-max-w-full sl-cursor-pointer"><div class="sl-flex sl-justify-center sl-w-8 sl--ml-8 sl-pl-3 sl-text-muted" role="button"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right" class="svg-inline--fa fa-chevron-right fa-fw fa-sm sl-icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M96 480c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L242.8 256L73.38 86.63c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l192 192c12.5 12.5 12.5 32.75 0 45.25l-192 192C112.4 476.9 104.2 480 96 480z"></path></svg></div><div class="sl-flex sl-items-baseline sl-text-base"><div data-test="property-name-ips" class="sl-font-mono sl-font-semibold sl-mr-2">ips</div><span data-test="property-type" class="sl-truncate sl-text-muted">object</span></div></div></div></div><div data-id="efa0b75cb7e43" data-test="schema-row" class="sl-flex sl-relative sl-max-w-full sl-py-2 sl-pl-3"><div class="sl-w-1 sl-mt-2 sl-mr-3 sl--ml-3 sl-border-t"></div><div class="sl-stack sl-stack--vertical sl-stack--1 sl-flex sl-flex-1 sl-flex-col sl-items-stretch sl-max-w-full sl-ml-2"><div class="sl-flex sl-items-center sl-max-w-full sl-cursor-pointer"><div class="sl-flex sl-justify-center sl-w-8 sl--ml-8 sl-pl-3 sl-text-muted" role="button"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right" class="svg-inline--fa fa-chevron-right fa-fw fa-sm sl-icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M96 480c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L242.8 256L73.38 86.63c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l192 192c12.5 12.5 12.5 32.75 0 45.25l-192 192C112.4 476.9 104.2 480 96 480z"></path></svg></div><div class="sl-flex sl-items-baseline sl-text-base"><div data-test="property-name-retargeting" class="sl-font-mono sl-font-semibold sl-mr-2">retargeting</div><span data-test="property-type" class="sl-truncate sl-text-muted">object</span></div></div></div></div></div></div></div></div></div></div></div></div></div></div><div data-testid="two-column-right" class="sl-relative sl-w-2/5 sl-ml-16" style="max-width: 500px;"><div class="sl-stack sl-stack--vertical sl-stack--6 sl-flex sl-flex-col sl-items-stretch"><div class="sl-inverted"><div class="sl-overflow-y-hidden sl-rounded-lg"><div class="TryItPanel sl-bg-canvas-100"><div data-test="try-it-auth" class="sl-panel sl-outline-none sl-w-full"><div aria-expanded="true" tabindex="0" class="sl-panel__titlebar sl-flex sl-items-center sl-relative focus:sl-z-10 sl-text-base sl-leading-none sl-pr-4 sl-pl-3 sl-bg-canvas-200 sl-text-body sl-border-input focus:sl-border-primary sl-cursor-pointer sl-select-none" role="button"><div class="sl-flex sl-flex-1 sl-items-center sl-h-lg"><div class="sl-flex sl-items-center sl-mr-1.5"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="caret-down" class="svg-inline--fa fa-caret-down fa-fw sl-icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 246.6l-127.1 128C176.4 380.9 168.2 384 160 384s-16.38-3.125-22.63-9.375l-127.1-128C.2244 237.5-2.516 223.7 2.438 211.8S19.07 192 32 192h255.1c12.94 0 24.62 7.781 29.58 19.75S319.8 237.5 310.6 246.6z"></path></svg></div>Auth</div></div><div class="sl-panel__content-wrapper sl-bg-canvas-100" role="region"><div data-test="auth-try-it-row" class="ParameterGrid sl-p-4"><label aria-hidden="true" for="id_auth_Authorization_DyRJIKMP">Authorization</label><span class="sl-mx-3">:</span><div class="sl-flex sl-flex-1"><div class="sl-input sl-form-group-border sl-flex-1 sl-relative"><input id="id_auth_Authorization_DyRJIKMP" aria-label="Authorization" placeholder="123" type="text" aria-required="true" class="sl-form-group-border sl-relative sl-w-full sl-h-md sl-text-base sl-pr-2.5 sl-pl-2.5 sl-rounded sl-border-transparent hover:sl-border-input focus:sl-border-primary sl-border" value=""></div></div></div></div></div><div class="sl-panel sl-outline-none sl-w-full"><div aria-expanded="true" tabindex="0" class="sl-panel__titlebar sl-flex sl-items-center sl-relative focus:sl-z-10 sl-text-base sl-leading-none sl-pr-4 sl-pl-3 sl-bg-canvas-200 sl-text-body sl-border-input focus:sl-border-primary sl-cursor-pointer sl-select-none" role="button"><div class="sl-flex sl-flex-1 sl-items-center sl-h-lg"><div class="sl-flex sl-items-center sl-mr-1.5"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="caret-down" class="svg-inline--fa fa-caret-down fa-fw sl-icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 246.6l-127.1 128C176.4 380.9 168.2 384 160 384s-16.38-3.125-22.63-9.375l-127.1-128C.2244 237.5-2.516 223.7 2.438 211.8S19.07 192 32 192h255.1c12.94 0 24.62 7.781 29.58 19.75S319.8 237.5 310.6 246.6z"></path></svg></div>Parameters</div></div><div class="sl-panel__content-wrapper sl-bg-canvas-100" role="region"><div class="sl-overflow-y-auto ParameterGrid OperationParametersContent sl-p-4"><label aria-hidden="true" data-testid="param-label" for="id_limit_J5mT-Q4M" class="sl-text-base">limit</label><span class="sl-mx-3">:</span><div><div class="sl-flex sl-flex-1"><div class="sl-input sl-form-group-border sl-flex-1 sl-relative"><input id="id_limit_J5mT-Q4M" aria-label="limit" placeholder="integer" type="text" aria-required="true" class="sl-form-group-border sl-relative sl-w-full sl-h-md sl-text-base sl-pr-2.5 sl-pl-2.5 sl-rounded sl-border-transparent hover:sl-border-input focus:sl-border-primary sl-border" value=""></div></div></div><label aria-hidden="true" data-testid="param-label" for="id_offset_Ldz991Ms" class="sl-text-base">offset</label><span class="sl-mx-3">:</span><div><div class="sl-flex sl-flex-1"><div class="sl-input sl-form-group-border sl-flex-1 sl-relative"><input id="id_offset_Ldz991Ms" aria-label="offset" placeholder="integer" type="text" aria-required="true" class="sl-form-group-border sl-relative sl-w-full sl-h-md sl-text-base sl-pr-2.5 sl-pl-2.5 sl-rounded sl-border-transparent hover:sl-border-input focus:sl-border-primary sl-border" value=""></div></div></div><label aria-hidden="true" data-testid="param-label" for="id_search_4nNksXl4" class="sl-text-base">search</label><span class="sl-mx-3">:</span><div><div class="sl-flex sl-flex-1"><div class="sl-input sl-form-group-border sl-flex-1 sl-relative"><input id="id_search_4nNksXl4" aria-label="search" placeholder="string" type="text" aria-required="true" class="sl-form-group-border sl-relative sl-w-full sl-h-md sl-text-base sl-pr-2.5 sl-pl-2.5 sl-rounded sl-border-transparent hover:sl-border-input focus:sl-border-primary sl-border" value=""></div></div></div></div></div></div><div class="sl-pb-1"></div><div class="SendButtonHolder sl-p-4 sl-pt-0"><div class="sl-stack sl-stack--horizontal sl-stack--2 sl-flex sl-flex-row sl-items-center"><button type="button" class="sl-button sl-form-group-border sl-h-sm sl-text-base sl-font-medium sl-px-1.5 sl-bg-primary hover:sl-bg-primary-dark active:sl-bg-primary-darker disabled:sl-bg-canvas-100 sl-text-on-primary disabled:sl-text-body sl-rounded sl-border-transparent sl-border disabled:sl-opacity-70">Send API Request</button></div></div></div><div class="sl-panel sl-outline-none sl-w-full"><div aria-expanded="true" tabindex="0" class="sl-panel__titlebar sl-flex sl-items-center sl-relative focus:sl-z-10 sl-text-base sl-leading-none sl-pr-3 sl-pl-3 sl-bg-canvas-200 sl-text-body sl-border-input focus:sl-border-primary sl-cursor-pointer sl-select-none" role="button"><div class="sl-flex sl-flex-1 sl-items-center sl-h-lg"><div class="sl-flex sl-items-center sl-mr-1.5"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="caret-down" class="svg-inline--fa fa-caret-down fa-fw sl-icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 246.6l-127.1 128C176.4 380.9 168.2 384 160 384s-16.38-3.125-22.63-9.375l-127.1-128C.2244 237.5-2.516 223.7 2.438 211.8S19.07 192 32 192h255.1c12.94 0 24.62 7.781 29.58 19.75S319.8 237.5 310.6 246.6z"></path></svg></div>Response</div><button type="button" aria-label="Body Format" aria-haspopup="true" aria-expanded="false" id="react-aria-2-16" class="sl-button sl-form-group-border sl-h-sm sl-text-base sl-font-medium sl-px-1.5 hover:sl-bg-canvas-50 active:sl-bg-canvas-100 sl-text-muted hover:sl-text-body focus:sl-text-body sl-rounded sl-border-transparent sl-border disabled:sl-opacity-70">Preview<div class="sl-text-xs sl--mr-0.5 sl-ml-1"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sort" class="svg-inline--fa fa-sort fa-fw sl-icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M27.66 224h264.7c24.6 0 36.89-29.78 19.54-47.12l-132.3-136.8c-5.406-5.406-12.47-8.107-19.53-8.107c-7.055 0-14.09 2.701-19.45 8.107L8.119 176.9C-9.229 194.2 3.055 224 27.66 224zM292.3 288H27.66c-24.6 0-36.89 29.77-19.54 47.12l132.5 136.8C145.9 477.3 152.1 480 160 480c7.053 0 14.12-2.703 19.53-8.109l132.3-136.8C329.2 317.8 316.9 288 292.3 288z"></path></svg></div></button></div><div class="sl-panel__content-wrapper sl-bg-canvas-100" role="region"><div class="sl-panel__content sl-p-4"><div><div class="sl-mb-3 sl-text-orange">401 Unauthorized</div><pre tabindex="0" class="sl-code-viewer sl-grid sl-overflow-x-hidden sl-overflow-y-hidden sl-relative sl-outline-none sl-group" role="group"><div class="sl-code-viewer__scroller sl-overflow-x-auto sl-overflow-y-auto" style="max-height: 500px;"><div class="sl-code-highlight prism-code language-json" style="padding: 12px 15px; font-family: var(--font-code); font-size: var(--fs-code); line-height: var(--lh-code);"><div class="sl-flex"><div class="sl-flex-1 sl-break-all"><span class="token punctuation" style="color: inherit;">{</span><span class="token property" style="color: rgb(128, 203, 196);">"status"</span><span class="token operator" style="color: rgb(255, 123, 114);">:</span><span class="token number" style="color: rgb(247, 140, 108);">401</span><span class="token punctuation" style="color: inherit;">,</span><span class="token property" style="color: rgb(128, 203, 196);">"type"</span><span class="token operator" style="color: rgb(255, 123, 114);">:</span><span class="token string" style="color: rgb(165, 214, 255);">"Error"</span><span class="token punctuation" style="color: inherit;">,</span><span class="token property" style="color: rgb(128, 203, 196);">"message"</span><span class="token operator" style="color: rgb(255, 123, 114);">:</span><span class="token string" style="color: rgb(165, 214, 255);">"Invalid token"</span><span class="token punctuation" style="color: inherit;">}</span></div></div></div></div><div data-testid="copy-button" class="sl-absolute sl-right-0 sl-pr-2 sl-invisible group-hover:sl-visible sl-invisible" style="top: 9px;"><button type="button" class="sl-button sl-form-group-border sl-h-sm sl-text-base sl-font-medium sl-px-1.5 hover:sl-bg-canvas-50 active:sl-bg-canvas-100 sl-text-muted hover:sl-text-body focus:sl-text-body sl-rounded sl-border-transparent sl-border disabled:sl-opacity-70"><div class="sl-mx-0"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="copy" class="svg-inline--fa fa-copy fa-fw fa-sm sl-icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M384 96L384 0h-112c-26.51 0-48 21.49-48 48v288c0 26.51 21.49 48 48 48H464c26.51 0 48-21.49 48-48V128h-95.1C398.4 128 384 113.6 384 96zM416 0v96h96L416 0zM192 352V128h-144c-26.51 0-48 21.49-48 48v288c0 26.51 21.49 48 48 48h192c26.51 0 48-21.49 48-48L288 416h-32C220.7 416 192 387.3 192 352z"></path></svg></div></button></div></pre></div></div></div></div></div></div><div class="sl-panel sl-outline-none sl-w-full sl-rounded-lg"><div class="sl-panel__titlebar sl-flex sl-items-center sl-relative focus:sl-z-10 sl-text-base sl-leading-none sl-pr-3 sl-pl-4 sl-bg-canvas-200 sl-text-body sl-border-input focus:sl-border-primary sl-select-none"><div class="sl-flex sl-flex-1 sl-items-center sl-h-lg"><div class="sl--ml-2"><button type="button" aria-label="Request Sample Language" aria-haspopup="true" aria-expanded="false" id="react-aria-2-14" class="sl-button sl-form-group-border sl-h-sm sl-text-base sl-font-medium sl-px-1.5 hover:sl-bg-canvas-50 active:sl-bg-canvas-100 sl-text-muted hover:sl-text-body focus:sl-text-body sl-rounded sl-border-transparent sl-border disabled:sl-opacity-70">Request Sample: Shell / cURL<div class="sl-text-xs sl--mr-0.5 sl-ml-1"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-down" class="svg-inline--fa fa-chevron-down fa-fw sl-icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M224 416c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L224 338.8l169.4-169.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-192 192C240.4 412.9 232.2 416 224 416z"></path></svg></div></button></div></div><button type="button" class="sl-button sl-form-group-border sl-h-sm sl-text-base sl-font-medium sl-px-1.5 hover:sl-bg-canvas-50 active:sl-bg-canvas-100 sl-text-muted hover:sl-text-body focus:sl-text-body sl-rounded sl-border-transparent sl-border disabled:sl-opacity-70"><div class="sl-mx-0"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="copy" class="svg-inline--fa fa-copy fa-fw fa-sm sl-icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M384 96L384 0h-112c-26.51 0-48 21.49-48 48v288c0 26.51 21.49 48 48 48H464c26.51 0 48-21.49 48-48V128h-95.1C398.4 128 384 113.6 384 96zM416 0v96h96L416 0zM192 352V128h-144c-26.51 0-48 21.49-48 48v288c0 26.51 21.49 48 48 48h192c26.51 0 48-21.49 48-48L288 416h-32C220.7 416 192 387.3 192 352z"></path></svg></div></button></div><div class="sl-panel__content-wrapper sl-bg-canvas-100"><div class="sl-panel__content sl-p-0"><pre tabindex="0" aria-label="curl --request GET \
+  --url https://api.push.house/v1/audiences \
+  --header &#39;Accept: application/json&#39; \
+  --header &#39;Authorization: 123&#39;" class="sl-code-viewer sl-grid sl-overflow-x-hidden sl-overflow-y-hidden sl-relative sl-outline-none sl-group" role="group" style="--fs-code: 12;"><div class="sl-code-viewer__scroller sl-overflow-x-auto sl-overflow-y-auto" style="max-height: 400px;"><div class="sl-code-highlight prism-code language-bash" style="padding: 12px 15px; font-family: var(--font-code); font-size: var(--fs-code); line-height: var(--lh-code);"><div class="sl-flex"><div class="sl-flex-1 sl-break-all"><span class="token function" style="color: rgb(111, 66, 193);">curl</span><span class="token plain"> --request GET </span><span class="token punctuation" style="color: rgb(51, 51, 51);">\</span><span class="token plain"></span></div></div><div class="sl-flex"><div class="sl-flex-1 sl-break-all"><span class="token plain">  --url https://api.push.house/v1/audiences </span><span class="token punctuation" style="color: rgb(51, 51, 51);">\</span><span class="token plain"></span></div></div><div class="sl-flex"><div class="sl-flex-1 sl-break-all"><span class="token plain">  --header </span><span class="token string" style="color: rgb(3, 47, 98);">'Accept: application/json'</span><span class="token plain"> </span><span class="token punctuation" style="color: rgb(51, 51, 51);">\</span><span class="token plain"></span></div></div><div class="sl-flex"><div class="sl-flex-1 sl-break-all"><span class="token plain">  --header </span><span class="token string" style="color: rgb(3, 47, 98);">'Authorization: 123'</span></div></div></div></div></pre></div></div></div><div class="sl-panel sl-outline-none sl-w-full sl-rounded-lg"><div class="sl-panel__titlebar sl-flex sl-items-center sl-relative focus:sl-z-10 sl-text-base sl-leading-none sl-pr-3 sl-pl-4 sl-bg-canvas-200 sl-text-body sl-border-input focus:sl-border-primary sl-select-none"><div class="sl-flex sl-flex-1 sl-items-center sl-h-lg"><span class="sl-text-body">Response Example</span></div><button type="button" class="sl-button sl-form-group-border sl-h-sm sl-text-base sl-font-medium sl-px-1.5 hover:sl-bg-canvas-50 active:sl-bg-canvas-100 sl-text-muted hover:sl-text-body focus:sl-text-body sl-rounded sl-border-transparent sl-border disabled:sl-opacity-70"><div class="sl-mx-0"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="copy" class="svg-inline--fa fa-copy fa-fw fa-sm sl-icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M384 96L384 0h-112c-26.51 0-48 21.49-48 48v288c0 26.51 21.49 48 48 48H464c26.51 0 48-21.49 48-48V128h-95.1C398.4 128 384 113.6 384 96zM416 0v96h96L416 0zM192 352V128h-144c-26.51 0-48 21.49-48 48v288c0 26.51 21.49 48 48 48h192c26.51 0 48-21.49 48-48L288 416h-32C220.7 416 192 387.3 192 352z"></path></svg></div></button></div><div class="sl-panel__content-wrapper sl-bg-canvas-100"><div class="sl-panel__content sl-p-0"><pre tabindex="0" aria-label="{
+  &quot;data&quot;: [
+    {
+      &quot;id&quot;: 1,
+      &quot;name&quot;: &quot;test&quot;,
+      &quot;subaccs&quot;: {
+        &quot;color&quot;: &quot;black&quot;,
+        &quot;values&quot;: [
+          1,
+          2,
+          3
+        ]
+      },
+      &quot;ips&quot;: {
+        &quot;color&quot;: &quot;black&quot;,
+        &quot;values&quot;: [
+          &quot;172.16.0.0 – 172.31.255.255&quot;,
+          &quot;192.168.0.0 – 192.168.255.255&quot;
+        ]
+      },
+      &quot;retargeting&quot;: {
+        &quot;color&quot;: &quot;white&quot;,
+        &quot;values&quot;: [
+          1,
+          2,
+          3
+        ]
+      }
+    }
+  ]
+}" class="sl-code-viewer sl-grid sl-overflow-x-hidden sl-overflow-y-hidden sl-relative sl-outline-none sl-group" role="group" style="--fs-code: 12;"><div class="sl-code-viewer__scroller sl-overflow-x-auto sl-overflow-y-auto" style="max-height: 500px;"><div class="sl-code-highlight prism-code language-json" style="padding: 12px 15px; font-family: var(--font-code); font-size: var(--fs-code); line-height: var(--lh-code);"><div class="sl-flex"><div class="sl-code-highlight__ln sl-flex-shrink-0 sl-select-none sl-opacity-50" style="width: 28px; font-size: 0.9em; padding-top: 0.1em; line-height: var(--lh-code);">1</div><div class="sl-flex-1 sl-break-all"><span class="token punctuation" style="color: rgb(51, 51, 51);">{</span><span class="token plain"></span></div></div><div class="sl-flex"><div class="sl-code-highlight__ln sl-flex-shrink-0 sl-select-none sl-opacity-50" style="width: 28px; font-size: 0.9em; padding-top: 0.1em; line-height: var(--lh-code);">2</div><div class="sl-flex-1 sl-break-all"><span class="token plain">  </span><span class="token property" style="color: rgb(24, 54, 145);">"data"</span><span class="token operator" style="color: rgb(215, 58, 73);">:</span><span class="token plain"> </span><span class="token punctuation" style="color: rgb(51, 51, 51);">[</span><span class="token plain"></span></div></div><div class="sl-flex"><div class="sl-code-highlight__ln sl-flex-shrink-0 sl-select-none sl-opacity-50" style="width: 28px; font-size: 0.9em; padding-top: 0.1em; line-height: var(--lh-code);">3</div><div class="sl-flex-1 sl-break-all"><span class="token plain">    </span><span class="token punctuation" style="color: rgb(51, 51, 51);">{</span><span class="token plain"></span></div></div><div class="sl-flex"><div class="sl-code-highlight__ln sl-flex-shrink-0 sl-select-none sl-opacity-50" style="width: 28px; font-size: 0.9em; padding-top: 0.1em; line-height: var(--lh-code);">4</div><div class="sl-flex-1 sl-break-all"><span class="token plain">      </span><span class="token property" style="color: rgb(24, 54, 145);">"id"</span><span class="token operator" style="color: rgb(215, 58, 73);">:</span><span class="token plain"> </span><span class="token number" style="color: rgb(0, 92, 197);">1</span><span class="token punctuation" style="color: rgb(51, 51, 51);">,</span><span class="token plain"></span></div></div><div class="sl-flex"><div class="sl-code-highlight__ln sl-flex-shrink-0 sl-select-none sl-opacity-50" style="width: 28px; font-size: 0.9em; padding-top: 0.1em; line-height: var(--lh-code);">5</div><div class="sl-flex-1 sl-break-all"><span class="token plain">      </span><span class="token property" style="color: rgb(24, 54, 145);">"name"</span><span class="token operator" style="color: rgb(215, 58, 73);">:</span><span class="token plain"> </span><span class="token string" style="color: rgb(3, 47, 98);">"test"</span><span class="token punctuation" style="color: rgb(51, 51, 51);">,</span><span class="token plain"></span></div></div><div class="sl-flex"><div class="sl-code-highlight__ln sl-flex-shrink-0 sl-select-none sl-opacity-50" style="width: 28px; font-size: 0.9em; padding-top: 0.1em; line-height: var(--lh-code);">6</div><div class="sl-flex-1 sl-break-all"><span class="token plain">      </span><span class="token property" style="color: rgb(24, 54, 145);">"subaccs"</span><span class="token operator" style="color: rgb(215, 58, 73);">:</span><span class="token plain"> </span><span class="token punctuation" style="color: rgb(51, 51, 51);">{</span><span class="token plain"></span></div></div><div class="sl-flex"><div class="sl-code-highlight__ln sl-flex-shrink-0 sl-select-none sl-opacity-50" style="width: 28px; font-size: 0.9em; padding-top: 0.1em; line-height: var(--lh-code);">7</div><div class="sl-flex-1 sl-break-all"><span class="token plain">        </span><span class="token property" style="color: rgb(24, 54, 145);">"color"</span><span class="token operator" style="color: rgb(215, 58, 73);">:</span><span class="token plain"> </span><span class="token string" style="color: rgb(3, 47, 98);">"black"</span><span class="token punctuation" style="color: rgb(51, 51, 51);">,</span><span class="token plain"></span></div></div><div class="sl-flex"><div class="sl-code-highlight__ln sl-flex-shrink-0 sl-select-none sl-opacity-50" style="width: 28px; font-size: 0.9em; padding-top: 0.1em; line-height: var(--lh-code);">8</div><div class="sl-flex-1 sl-break-all"><span class="token plain">        </span><span class="token property" style="color: rgb(24, 54, 145);">"values"</span><span class="token operator" style="color: rgb(215, 58, 73);">:</span><span class="token plain"> </span><span class="token punctuation" style="color: rgb(51, 51, 51);">[</span><span class="token plain"></span></div></div><div class="sl-flex"><div class="sl-code-highlight__ln sl-flex-shrink-0 sl-select-none sl-opacity-50" style="width: 28px; font-size: 0.9em; padding-top: 0.1em; line-height: var(--lh-code);">9</div><div class="sl-flex-1 sl-break-all"><span class="token plain">          </span><span class="token number" style="color: rgb(0, 92, 197);">1</span><span class="token punctuation" style="color: rgb(51, 51, 51);">,</span><span class="token plain"></span></div></div><div class="sl-flex"><div class="sl-code-highlight__ln sl-flex-shrink-0 sl-select-none sl-opacity-50" style="width: 28px; font-size: 0.9em; padding-top: 0.1em; line-height: var(--lh-code);">10</div><div class="sl-flex-1 sl-break-all"><span class="token plain">          </span><span class="token number" style="color: rgb(0, 92, 197);">2</span><span class="token punctuation" style="color: rgb(51, 51, 51);">,</span><span class="token plain"></span></div></div><div class="sl-flex"><div class="sl-code-highlight__ln sl-flex-shrink-0 sl-select-none sl-opacity-50" style="width: 28px; font-size: 0.9em; padding-top: 0.1em; line-height: var(--lh-code);">11</div><div class="sl-flex-1 sl-break-all"><span class="token plain">          </span><span class="token number" style="color: rgb(0, 92, 197);">3</span><span class="token plain"></span></div></div><div class="sl-flex"><div class="sl-code-highlight__ln sl-flex-shrink-0 sl-select-none sl-opacity-50" style="width: 28px; font-size: 0.9em; padding-top: 0.1em; line-height: var(--lh-code);">12</div><div class="sl-flex-1 sl-break-all"><span class="token plain">        </span><span class="token punctuation" style="color: rgb(51, 51, 51);">]</span><span class="token plain"></span></div></div><div class="sl-flex"><div class="sl-code-highlight__ln sl-flex-shrink-0 sl-select-none sl-opacity-50" style="width: 28px; font-size: 0.9em; padding-top: 0.1em; line-height: var(--lh-code);">13</div><div class="sl-flex-1 sl-break-all"><span class="token plain">      </span><span class="token punctuation" style="color: rgb(51, 51, 51);">}</span><span class="token punctuation" style="color: rgb(51, 51, 51);">,</span><span class="token plain"></span></div></div><div class="sl-flex"><div class="sl-code-highlight__ln sl-flex-shrink-0 sl-select-none sl-opacity-50" style="width: 28px; font-size: 0.9em; padding-top: 0.1em; line-height: var(--lh-code);">14</div><div class="sl-flex-1 sl-break-all"><span class="token plain">      </span><span class="token property" style="color: rgb(24, 54, 145);">"ips"</span><span class="token operator" style="color: rgb(215, 58, 73);">:</span><span class="token plain"> </span><span class="token punctuation" style="color: rgb(51, 51, 51);">{</span><span class="token plain"></span></div></div><div class="sl-flex"><div class="sl-code-highlight__ln sl-flex-shrink-0 sl-select-none sl-opacity-50" style="width: 28px; font-size: 0.9em; padding-top: 0.1em; line-height: var(--lh-code);">15</div><div class="sl-flex-1 sl-break-all"><span class="token plain">        </span><span class="token property" style="color: rgb(24, 54, 145);">"color"</span><span class="token operator" style="color: rgb(215, 58, 73);">:</span><span class="token plain"> </span><span class="token string" style="color: rgb(3, 47, 98);">"black"</span><span class="token punctuation" style="color: rgb(51, 51, 51);">,</span><span class="token plain"></span></div></div><div class="sl-flex"><div class="sl-code-highlight__ln sl-flex-shrink-0 sl-select-none sl-opacity-50" style="width: 28px; font-size: 0.9em; padding-top: 0.1em; line-height: var(--lh-code);">16</div><div class="sl-flex-1 sl-break-all"><span class="token plain">        </span><span class="token property" style="color: rgb(24, 54, 145);">"values"</span><span class="token operator" style="color: rgb(215, 58, 73);">:</span><span class="token plain"> </span><span class="token punctuation" style="color: rgb(51, 51, 51);">[</span><span class="token plain"></span></div></div><div class="sl-flex"><div class="sl-code-highlight__ln sl-flex-shrink-0 sl-select-none sl-opacity-50" style="width: 28px; font-size: 0.9em; padding-top: 0.1em; line-height: var(--lh-code);">17</div><div class="sl-flex-1 sl-break-all"><span class="token plain">          </span><span class="token string" style="color: rgb(3, 47, 98);">"172.16.0.0 – 172.31.255.255"</span><span class="token punctuation" style="color: rgb(51, 51, 51);">,</span><span class="token plain"></span></div></div><div class="sl-flex"><div class="sl-code-highlight__ln sl-flex-shrink-0 sl-select-none sl-opacity-50" style="width: 28px; font-size: 0.9em; padding-top: 0.1em; line-height: var(--lh-code);">18</div><div class="sl-flex-1 sl-break-all"><span class="token plain">          </span><span class="token string" style="color: rgb(3, 47, 98);">"192.168.0.0 – 192.168.255.255"</span><span class="token plain"></span></div></div><div class="sl-flex"><div class="sl-code-highlight__ln sl-flex-shrink-0 sl-select-none sl-opacity-50" style="width: 28px; font-size: 0.9em; padding-top: 0.1em; line-height: var(--lh-code);">19</div><div class="sl-flex-1 sl-break-all"><span class="token plain">        </span><span class="token punctuation" style="color: rgb(51, 51, 51);">]</span><span class="token plain"></span></div></div><div class="sl-flex"><div class="sl-code-highlight__ln sl-flex-shrink-0 sl-select-none sl-opacity-50" style="width: 28px; font-size: 0.9em; padding-top: 0.1em; line-height: var(--lh-code);">20</div><div class="sl-flex-1 sl-break-all"><span class="token plain">      </span><span class="token punctuation" style="color: rgb(51, 51, 51);">}</span><span class="token punctuation" style="color: rgb(51, 51, 51);">,</span><span class="token plain"></span></div></div><div class="sl-flex"><div class="sl-code-highlight__ln sl-flex-shrink-0 sl-select-none sl-opacity-50" style="width: 28px; font-size: 0.9em; padding-top: 0.1em; line-height: var(--lh-code);">21</div><div class="sl-flex-1 sl-break-all"><span class="token plain">      </span><span class="token property" style="color: rgb(24, 54, 145);">"retargeting"</span><span class="token operator" style="color: rgb(215, 58, 73);">:</span><span class="token plain"> </span><span class="token punctuation" style="color: rgb(51, 51, 51);">{</span><span class="token plain"></span></div></div><div class="sl-flex"><div class="sl-code-highlight__ln sl-flex-shrink-0 sl-select-none sl-opacity-50" style="width: 28px; font-size: 0.9em; padding-top: 0.1em; line-height: var(--lh-code);">22</div><div class="sl-flex-1 sl-break-all"><span class="token plain">        </span><span class="token property" style="color: rgb(24, 54, 145);">"color"</span><span class="token operator" style="color: rgb(215, 58, 73);">:</span><span class="token plain"> </span><span class="token string" style="color: rgb(3, 47, 98);">"white"</span><span class="token punctuation" style="color: rgb(51, 51, 51);">,</span><span class="token plain"></span></div></div><div class="sl-flex"><div class="sl-code-highlight__ln sl-flex-shrink-0 sl-select-none sl-opacity-50" style="width: 28px; font-size: 0.9em; padding-top: 0.1em; line-height: var(--lh-code);">23</div><div class="sl-flex-1 sl-break-all"><span class="token plain">        </span><span class="token property" style="color: rgb(24, 54, 145);">"values"</span><span class="token operator" style="color: rgb(215, 58, 73);">:</span><span class="token plain"> </span><span class="token punctuation" style="color: rgb(51, 51, 51);">[</span><span class="token plain"></span></div></div><div class="sl-flex"><div class="sl-code-highlight__ln sl-flex-shrink-0 sl-select-none sl-opacity-50" style="width: 28px; font-size: 0.9em; padding-top: 0.1em; line-height: var(--lh-code);">24</div><div class="sl-flex-1 sl-break-all"><span class="token plain">          </span><span class="token number" style="color: rgb(0, 92, 197);">1</span><span class="token punctuation" style="color: rgb(51, 51, 51);">,</span><span class="token plain"></span></div></div><div class="sl-flex"><div class="sl-code-highlight__ln sl-flex-shrink-0 sl-select-none sl-opacity-50" style="width: 28px; font-size: 0.9em; padding-top: 0.1em; line-height: var(--lh-code);">25</div><div class="sl-flex-1 sl-break-all"><span class="token plain">          </span><span class="token number" style="color: rgb(0, 92, 197);">2</span><span class="token punctuation" style="color: rgb(51, 51, 51);">,</span><span class="token plain"></span></div></div><div class="sl-flex"><div class="sl-code-highlight__ln sl-flex-shrink-0 sl-select-none sl-opacity-50" style="width: 28px; font-size: 0.9em; padding-top: 0.1em; line-height: var(--lh-code);">26</div><div class="sl-flex-1 sl-break-all"><span class="token plain">          </span><span class="token number" style="color: rgb(0, 92, 197);">3</span><span class="token plain"></span></div></div><div class="sl-flex"><div class="sl-code-highlight__ln sl-flex-shrink-0 sl-select-none sl-opacity-50" style="width: 28px; font-size: 0.9em; padding-top: 0.1em; line-height: var(--lh-code);">27</div><div class="sl-flex-1 sl-break-all"><span class="token plain">        </span><span class="token punctuation" style="color: rgb(51, 51, 51);">]</span><span class="token plain"></span></div></div><div class="sl-flex"><div class="sl-code-highlight__ln sl-flex-shrink-0 sl-select-none sl-opacity-50" style="width: 28px; font-size: 0.9em; padding-top: 0.1em; line-height: var(--lh-code);">28</div><div class="sl-flex-1 sl-break-all"><span class="token plain">      </span><span class="token punctuation" style="color: rgb(51, 51, 51);">}</span><span class="token plain"></span></div></div><div class="sl-flex"><div class="sl-code-highlight__ln sl-flex-shrink-0 sl-select-none sl-opacity-50" style="width: 28px; font-size: 0.9em; padding-top: 0.1em; line-height: var(--lh-code);">29</div><div class="sl-flex-1 sl-break-all"><span class="token plain">    </span><span class="token punctuation" style="color: rgb(51, 51, 51);">}</span><span class="token plain"></span></div></div><div class="sl-flex"><div class="sl-code-highlight__ln sl-flex-shrink-0 sl-select-none sl-opacity-50" style="width: 28px; font-size: 0.9em; padding-top: 0.1em; line-height: var(--lh-code);">30</div><div class="sl-flex-1 sl-break-all"><span class="token plain">  </span><span class="token punctuation" style="color: rgb(51, 51, 51);">]</span><span class="token plain"></span></div></div><div class="sl-flex"><div class="sl-code-highlight__ln sl-flex-shrink-0 sl-select-none sl-opacity-50" style="width: 28px; font-size: 0.9em; padding-top: 0.1em; line-height: var(--lh-code);">31</div><div class="sl-flex-1 sl-break-all"><span class="token plain"></span><span class="token punctuation" style="color: rgb(51, 51, 51);">}</span></div></div></div></div></pre></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+
+<script defer="" src="./API Documentation_files/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;f2f2c4fcb70e4f6aba1d72965e3fbc27&quot;,&quot;r&quot;:1,&quot;server_timing&quot;:{&quot;name&quot;:{&quot;cfCacheStatus&quot;:true,&quot;cfEdge&quot;:true,&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfOrigin&quot;:true,&quot;cfSpeedBrain&quot;:true},&quot;location_startswith&quot;:null}}" crossorigin="anonymous"></script>
+
+</elements-api><veepn-lock-screen><template shadowrootmode="open"><style>html{box-sizing:border-box;text-size-adjust:100%;word-break:normal;tab-size:4}*,:before,:after{background-repeat:no-repeat;box-sizing:border-box}:before,:after{text-decoration:inherit;vertical-align:inherit}*{padding:0;margin:0}hr{overflow:visible;height:0;color:inherit;border:0;border-top:1px solid}details,main{display:block}summary{display:list-item}small{font-size:80%}[hidden]{display:none!important}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}a{background-color:transparent}a:active,a:hover{outline-width:0}code,kbd,pre,samp{font-family:monospace}pre{font-size:1em}b,strong{font-weight:bolder}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{border-color:inherit;text-indent:0}iframe{border-style:none}input{border-radius:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-decoration{appearance:none}textarea{overflow:auto;resize:vertical}button,input,optgroup,select,textarea{font:inherit;color:inherit}optgroup{font-weight:700}button{overflow:visible}button,select{text-transform:none}button,[type=button],[type=reset],[type=submit],[role=button]{cursor:pointer}button::-moz-focus-inner,[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner{border-style:none;padding:0}button,html [type=button],[type=reset],[type=submit]{appearance:auto}button,input,select,textarea{background-color:transparent;border-style:none}button:-moz-focusring,[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner{outline:1px dotted ButtonText}select{appearance:none}a:focus,button:focus,input:focus,select:focus,textarea:focus{outline-width:0}select::-ms-expand{display:none}select::-ms-value{color:currentcolor}legend{border:0;color:inherit;display:table;white-space:normal;max-width:100%}::-webkit-file-upload-button{appearance:auto;color:inherit;font:inherit}[disabled]{cursor:default}img{border-style:none}progress{vertical-align:baseline}[aria-busy=true]{cursor:progress}[aria-controls]{cursor:pointer}[aria-disabled=true]{cursor:default}ul,ol{list-style-type:none}figure{margin:0}@keyframes slide-in{0%{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}.gradient-blue{background:radial-gradient(106.41% 128.47% at 50.15% 128.47%,#23abff,#3066ff)}.gradient-green{background:radial-gradient(92.26% 118.88% at 50.15% .13%,#00c3c3,#00aab3)}.gradient-purple{background:radial-gradient(165.12% 115.56% at 50.15% .13%,#a15aff,#00a0eb)}.bg-blue{background-color:#f2f5ff}.bg-purple{background-color:#f7f0ff}.bg-green{background-color:#ebffed}.lock-screen{font-family:FigtreeVF,sans-serif;letter-spacing:normal;position:fixed;z-index:2147483638;right:24px;bottom:24px;width:327px;border-radius:24px;overflow:hidden;box-shadow:0 24px 32px #00000014;animation:slide-in .3s ease-in-out forwards}.lock-screen__content{position:relative;padding:24px 24px 64px}.lock-screen__close{position:absolute;top:16px;right:16px;width:24px;height:24px;display:flex;align-items:center;justify-content:center;opacity:.5}.lock-screen__label{height:26px;width:fit-content;border-radius:50px;background-color:#fff3;padding-inline:16px;display:flex;align-items:center;justify-content:center;gap:8px;color:#fff;font-size:12px;line-height:18px;margin:-8px auto 16px}.lock-screen__title{color:#fff;text-align:center;font-size:20px;line-height:28px;font-weight:600;margin-bottom:8px}.lock-screen__description{color:#f5f6f7;text-align:center;font-size:14px;line-height:20px}.lock-screen__description b{font-weight:600}.lock-screen__card{position:relative;z-index:1;margin-top:-44px;background-color:#fff;border-radius:24px;padding:32px 20px 20px}.lock-screen__inner{margin-bottom:24px}.lock-screen__submit{display:flex;align-items:center;justify-content:center;gap:10px;font-weight:700;font-size:16px;height:40px;width:100%;border-radius:12px;padding-inline:16px;background-color:#f70;color:#fff;margin-bottom:16px}.lock-screen__skip{display:flex;align-items:center;justify-content:center;font-size:14px;line-height:20px;color:#82829c;margin-inline:auto}.price-card{border:1px solid #f2f2fc;background:linear-gradient(254.14deg,#fafbff .04%,#f5f8ff 100.04%);border-radius:24px;padding:24px 28px}.price-card__label{color:#4a5764;text-align:center;font-size:14px;line-height:20px;text-transform:uppercase;margin-bottom:16px}.price-card__price{display:flex;justify-content:center;align-items:flex-start;column-gap:2px;margin-bottom:12px}.price-card__currency{color:#515478;font-size:18px;line-height:28px}.price-card__number{color:#14142a;text-align:center;font-size:64px;line-height:54px}.price-card__wrap{display:flex;flex-direction:column}.price-card__decimal{color:#515478;font-size:18px;line-height:28px;font-weight:600}.price-card__period{color:#515478;font-size:14px;line-height:20px;margin-top:-6px}.price-card__discount{position:relative;display:flex;align-items:center;justify-content:center;margin-bottom:12px}.price-card__discount-divider{position:absolute;z-index:0;top:50%;left:0;width:100%;height:1px;background-color:#dbe2f9;transform:translateY(-50%)}.price-card__discount-icon{position:absolute;z-index:1;top:50%;left:50%;transform:translate(-50%,-50%)}.price-card__discount-text{position:relative;z-index:2;color:#fff;font-size:12px;font-weight:600;line-height:18px}.price-card__features{display:flex;align-items:center;justify-content:center;column-gap:16px}.price-card__feature{color:#222e3a;font-size:14px;line-height:20px;display:flex;align-items:center;gap:6px}.price-card__feature:before{content:"";display:block;width:4px;height:4px;background-color:#20df9e;border-radius:50%;flex-shrink:0}.features-list{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.features-list__item{display:flex;flex-direction:column;align-items:center;gap:6px}.features-list__icon{width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center}.features-list__text{color:#293a53;text-align:center;font-size:16px;line-height:24px;letter-spacing:-.1px}</style></template><style>@font-face{font-family:FigtreeVF;src:url(chrome-extension://majdfhpaihoncoakbjgbdhglocklcgno/fonts/FigtreeVF.woff2) format("woff2 supports variations"),url(chrome-extension://majdfhpaihoncoakbjgbdhglocklcgno/fonts/FigtreeVF.woff2) format("woff2-variations");font-weight:100 1000;font-display:swap}</style></veepn-lock-screen></body></html>

@@ -1,0 +1,103 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Helper functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return request.auth.uid == userId;
+    }
+
+    function hasRole(role) {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == role;
+    }
+
+    // Users collection
+    match /users/{userId} {
+      allow read: if isAuthenticated() && (isOwner(userId) || hasRole('admin'));
+      allow create: if isAuthenticated() && isOwner(userId);
+      allow update, delete: if isAuthenticated() && (isOwner(userId) || hasRole('admin'));
+
+      // User's campaigns subcollection
+      match /campaigns/{campaignId} {
+        allow read: if isAuthenticated() && isOwner(userId);
+        allow create: if isAuthenticated() && isOwner(userId);
+        allow update, delete: if isAuthenticated() && isOwner(userId);
+      }
+
+      // User's analytics subcollection
+      match /analytics/{analyticsId} {
+        allow read: if isAuthenticated() && isOwner(userId);
+        allow write: if isAuthenticated() && isOwner(userId);
+      }
+
+      // User's wallet subcollection
+      match /wallet/{walletId} {
+        allow read: if isAuthenticated() && isOwner(userId);
+        allow write: if isAuthenticated() && (isOwner(userId) || hasRole('admin'));
+      }
+
+      // User's transactions subcollection
+      match /transactions/{transactionId} {
+        allow read: if isAuthenticated() && isOwner(userId);
+        allow write: if isAuthenticated() && hasRole('admin');
+      }
+
+      // User's notifications subcollection
+      match /notifications/{notificationId} {
+        allow read: if isAuthenticated() && isOwner(userId);
+        allow write: if isAuthenticated() && (isOwner(userId) || hasRole('admin'));
+      }
+    }
+
+    // Campaigns collection for global access
+    match /campaigns/{campaignId} {
+      allow read: if isAuthenticated();
+      allow create: if isAuthenticated();
+      allow update: if isAuthenticated() && (resource.data.userId == request.auth.uid || hasRole('admin'));
+      allow delete: if isAuthenticated() && (resource.data.userId == request.auth.uid || hasRole('admin'));
+    }
+
+    // Analytics collection
+    match /analytics/{analyticsId} {
+      allow read: if isAuthenticated();
+      allow write: if isAuthenticated() && hasRole('admin');
+    }
+
+    // Wallets collection
+    match /wallets/{walletId} {
+      allow read: if isAuthenticated() && isOwner(resource.data.userId);
+      allow write: if isAuthenticated() && hasRole('admin');
+    }
+
+    // Transactions collection
+    match /transactions/{transactionId} {
+      allow read: if isAuthenticated() && (isOwner(resource.data.userId) || hasRole('admin'));
+      allow write: if isAuthenticated() && hasRole('admin');
+    }
+
+    // Notifications collection
+    match /notifications/{notificationId} {
+      allow read: if isAuthenticated() && (isOwner(resource.data.userId) || hasRole('admin'));
+      allow write: if isAuthenticated() && hasRole('admin');
+    }
+
+    // Admin panel data
+    match /admin/{document=**} {
+      allow read, write: if isAuthenticated() && hasRole('admin');
+    }
+
+    // System configuration (read-only for authenticated users)
+    match /system/{document=**} {
+      allow read: if isAuthenticated();
+      allow write: if isAuthenticated() && hasRole('admin');
+    }
+
+    // Deny all other access
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
