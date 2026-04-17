@@ -37,21 +37,22 @@ export async function GET(
 
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params;
     const body = await request.json();
 
     await adminDb
       .collection("users")
-      .doc(params.id)
+      .doc(id)
       .update({
         ...body,
         updatedAt: new Date(),
       });
 
     return NextResponse.json(
-      { id: params.id, message: "User updated successfully" },
+      { id, message: "User updated successfully" },
       { status: 200 }
     );
   } catch (error) {
