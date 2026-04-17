@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from "next/server";
-import { initializeApp } from "@/lib/firebase";
 import {
   getFirestore,
   collection,
@@ -9,9 +8,10 @@ import {
   where,
   Timestamp,
 } from "firebase/firestore";
+import app from "@/lib/firebase";
 import pushHouseService from "@/lib/push-house-client";
 
-const db = getFirestore(initializeApp());
+const db = getFirestore(app);
 
 export async function GET(request: NextRequest) {
   try {
