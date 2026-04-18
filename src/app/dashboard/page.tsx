@@ -6,6 +6,7 @@ import { Layout } from "@/components/layout/Layout";
 import { Card } from "@/components/ui/Card";
 import { StatCard } from "@/components/ui/StatCard";
 import { Button } from "@/components/ui/Button";
+import { useAuthStore } from "@/lib/store";
 
 import { TrendingUp, Zap, Target, PlusCircle, BarChart3 } from "lucide-react";
 import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
@@ -14,6 +15,7 @@ import toast from "react-hot-toast";
 
 export default function DashboardPage() {
   const router = useRouter();
+  const { user } = useAuthStore();
   const [chartData, setChartData] = useState<any[]>([]);
   const [topCampaigns, setTopCampaigns] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
@@ -102,7 +104,7 @@ export default function DashboardPage() {
           <div className="flex items-start justify-between">
             <div>
               <h1 className="text-3xl font-bold text-text-primary mb-1">
-                Good morning, Ali 👋
+                Good morning, {user?.name || "User"} 👋
               </h1>
               <p className="text-text-secondary">
                 Tuesday, April 14, 2026 — Your campaigns are running well today
