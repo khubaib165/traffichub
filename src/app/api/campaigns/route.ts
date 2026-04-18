@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import pushHouseService from "@/lib/push-house-client";
 import { adminDb } from "@/lib/firebase-admin";
-import { campaignRateLimiter, getClientIp } from "@/lib/rate-limiter";
+import { campaignRateLimiter } from "@/lib/rate-limiter";
 
 export async function GET(request: NextRequest) {
   // Check rate limit
@@ -76,9 +76,6 @@ export async function GET(request: NextRequest) {
 
         query = query.orderBy("createdAt", "desc");
 
-        const countSnapshot = await query.get();
-        const total = countSnapshot.size;
-
         let paginatedQuery = query.limit(limit);
 
         if (offset > 0) {
@@ -108,7 +105,7 @@ export async function GET(request: NextRequest) {
         firestoreSnapshot = await simpleQuery.get();
       }
 
-      const campaigns = firestoreSnapshot.docs.map((doc) => {
+      const campaigns = firestoreSnapshot.docs.map((doc: any) => {
         const data = doc.data();
         return {
           id: doc.id,

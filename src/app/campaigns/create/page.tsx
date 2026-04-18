@@ -5,7 +5,7 @@ import { Layout } from "@/components/layout/Layout";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
-import { X, AlertCircle } from "lucide-react";
+import { AlertCircle } from "lucide-react";
 import toast from "react-hot-toast";
 
 interface CampaignData {
@@ -175,7 +175,7 @@ export default function CreateCampaignPage() {
         throw new Error(error.details || "Failed to create campaign");
       }
 
-      const data = await response.json();
+
 
       setTimeout(() => {
         toast.dismiss();
@@ -634,3 +634,5 @@ export default function CreateCampaignPage() {
     </Layout>
   );
 }
+
+

@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import pushHouseService from "@/lib/push-house-client";
 
-export async function GET(request: NextRequest) {
+export async function GET(_request: NextRequest) {
   try {
-    const { searchParams } = new URL(request.url);
+    const { searchParams } = new URL(_request.url);
     const params: Record<string, any> = {};
 
     if (searchParams.has("country")) {

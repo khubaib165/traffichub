@@ -1,13 +1,13 @@
 "use client";
 
 import React from "react";
-import { Bell, Search, ChevronDown } from "lucide-react";
+import { Bell } from "lucide-react";
 import { useNotificationStore, useAuthStore, useWalletStore, useUIStore } from "@/lib/store";
 import { formatCurrency } from "@/lib/utils";
 
 export const Topbar: React.FC = () => {
   const { toggleSidebar } = useUIStore();
-  const { unreadCount, notifications } = useNotificationStore();
+  const { unreadCount } = useNotificationStore();
   const { user } = useAuthStore();
   const { wallet } = useWalletStore();
 
@@ -77,3 +77,4 @@ export const Topbar: React.FC = () => {
     </header>
   );
 };
+

@@ -2,7 +2,6 @@
 
 import React from "react";
 import { useThemeStore } from "@/lib/store";
-import { colors } from "@/styles/design-tokens";
 
 interface ThemeProviderProps {
   children: React.ReactNode;
@@ -18,3 +17,4 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
 
   return <>{children}</>;
 };
+

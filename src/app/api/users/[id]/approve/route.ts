@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { adminDb } from "@/lib/firebase-admin";
 
 export async function POST(
-  request: NextRequest,
+  _request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
@@ -14,7 +14,7 @@ export async function POST(
     });
 
     return NextResponse.json(
-      { id: params.id, message: "User approved successfully" },
+      { id, message: "User approved successfully" },
       { status: 200 }
     );
   } catch (error) {

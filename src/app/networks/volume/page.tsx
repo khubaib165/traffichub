@@ -6,7 +6,7 @@ import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { Skeleton } from "@/components/ui/Skeleton";
-import { Download, Search, TrendingUp, TrendingDown } from "lucide-react";
+import { Download, Search } from "lucide-react";
 import toast from "react-hot-toast";
 
 interface CountryVolumeData {
@@ -20,6 +20,10 @@ interface CountryVolumeData {
     pop: { min: number; max: number };
   };
   verticals: string[];
+  volume?: number;
+  cpm?: number;
+  ctr?: number;
+  yesterdayClicks?: number;
 }
 
 // All data comes from real Push House API - no mock data
@@ -86,6 +90,10 @@ export default function NetworkVolumePage() {
                   pop: { min: 0, max: 0 },
                 },
                 verticals: item.verticals || ["Push Ads", "Inpage Ads", "Pop Ads"],
+                volume: item.volume || 0,
+                cpm: item.cpm || 5.0,
+                ctr: item.ctr || 0.02,
+                yesterdayClicks: item.yesterdayClicks || 0,
               };
             });
 
@@ -479,7 +487,7 @@ export default function NetworkVolumePage() {
               Total Volume
             </p>
             <p className="text-2xl font-bold text-text-primary">
-              {filteredData.reduce((sum, row) => sum + row.volume, 0).toLocaleString()}
+              {filteredData.reduce((sum, row) => sum + (row.volume ?? 0), 0).toLocaleString()}
             </p>
           </Card>
           <Card className="bg-gradient-to-br from-brand-cyan/10 to-transparent border-brand-cyan/30">
@@ -487,7 +495,7 @@ export default function NetworkVolumePage() {
               Avg CPM
             </p>
             <p className="text-2xl font-bold text-text-primary">
-              ${(filteredData.reduce((sum, row) => sum + row.cpm, 0) / filteredData.length).toFixed(3)}
+              ${(filteredData.reduce((sum, row) => sum + (row.cpm ?? 0), 0) / filteredData.length).toFixed(3)}
             </p>
           </Card>
           <Card className="bg-gradient-to-br from-brand-green/10 to-transparent border-brand-green/30">
@@ -496,7 +504,7 @@ export default function NetworkVolumePage() {
             </p>
             <p className="text-2xl font-bold text-text-primary">
               {(
-                (filteredData.reduce((sum, row) => sum + row.ctr, 0) / filteredData.length) *
+                (filteredData.reduce((sum, row) => sum + (row.ctr ?? 0), 0) / filteredData.length) *
                 100
               ).toFixed(2)}
               %
@@ -507,7 +515,7 @@ export default function NetworkVolumePage() {
               Yesterday's Total
             </p>
             <p className="text-2xl font-bold text-text-primary">
-              {filteredData.reduce((sum, row) => sum + row.yesterdayClicks, 0).toLocaleString()}
+              {filteredData.reduce((sum, row) => sum + (row.yesterdayClicks ?? 0), 0).toLocaleString()}
             </p>
           </Card>
         </div>
@@ -515,3 +523,5 @@ export default function NetworkVolumePage() {
     </Layout>
   );
 }
+
+

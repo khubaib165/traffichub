@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { useThemeStore } from "@/lib/store";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "secondary" | "danger" | "ghost";
@@ -67,3 +66,4 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 );
 
 Button.displayName = "Button";
+

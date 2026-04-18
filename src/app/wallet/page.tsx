@@ -5,7 +5,7 @@ import { Layout } from "@/components/layout/Layout";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
-import { Plus, CreditCard, X } from "lucide-react";
+import { X } from "lucide-react";
 import toast from "react-hot-toast";
 
 const mockTransactions = [

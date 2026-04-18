@@ -107,7 +107,7 @@ class RateLimiter {
 
     Object.keys(this.store).forEach((key) => {
       const entry = this.store[key];
-      if (now - entry.lastRefill > maxAge) {
+      if (entry && now - entry.lastRefill > maxAge) {
         delete this.store[key];
       }
     });
@@ -190,3 +190,4 @@ export default {
   withRateLimit,
   getClientIp,
 };
+

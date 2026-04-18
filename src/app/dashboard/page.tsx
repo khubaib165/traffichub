@@ -6,16 +6,9 @@ import { Layout } from "@/components/layout/Layout";
 import { Card } from "@/components/ui/Card";
 import { StatCard } from "@/components/ui/StatCard";
 import { Button } from "@/components/ui/Button";
-import { Skeleton } from "@/components/ui/Skeleton";
-import {
-  TrendingUp,
-  Zap,
-  Target,
-  DollarSign,
-  PlusCircle,
-  BarChart3,
-} from "lucide-react";
-import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
+
+import { TrendingUp, Zap, Target, PlusCircle, BarChart3 } from "lucide-react";
+import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
 import { colors } from "@/styles/design-tokens";
 import toast from "react-hot-toast";
 
@@ -45,9 +38,6 @@ export default function DashboardPage() {
         const statsRes = await fetch("/api/stats");
         const statsData = await statsRes.json();
 
-        // Fetch traffic data
-        const trafficRes = await fetch("/api/traffic");
-        const trafficData = await trafficRes.json();
 
         // Transform campaigns data for top campaigns
         if (campaignsData.data && Array.isArray(campaignsData.data)) {
@@ -261,3 +251,5 @@ export default function DashboardPage() {
     </Layout>
   );
 }
+
+

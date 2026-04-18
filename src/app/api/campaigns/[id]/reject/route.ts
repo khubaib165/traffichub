@@ -16,7 +16,7 @@ export async function POST(
     });
 
     return NextResponse.json(
-      { id: params.id, message: "Campaign rejected successfully" },
+      { id, message: "Campaign rejected successfully" },
       { status: 200 }
     );
   } catch (error) {

@@ -1,5 +1,5 @@
 // Chart configuration with brand colors
-import { colors } from "./design-tokens";
+import { colors } from "@/styles/design-tokens";
 
 export const chartConfig = {
   colors: {

@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { Layout } from "@/components/layout/Layout";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
-import { Briefcase, TrendingUp, Users, Copy, Check } from "lucide-react";
+import { Copy, Check } from "lucide-react";
 import toast from "react-hot-toast";
 
 export default function PartnersPage() {

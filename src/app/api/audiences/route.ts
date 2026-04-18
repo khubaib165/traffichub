@@ -13,7 +13,7 @@ import pushHouseService from "@/lib/push-house-client";
 
 const db = getFirestore(app);
 
-export async function GET(request: NextRequest) {
+export async function GET(_request: NextRequest) {
   try {
     // Try to get audiences from Push House API first
     try {

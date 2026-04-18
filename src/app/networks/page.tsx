@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { Layout } from "@/components/layout/Layout";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
-import { Globe, TrendingUp, Users, CheckCircle, BarChart3 } from "lucide-react";
+import { Globe, TrendingUp, CheckCircle, BarChart3 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import toast from "react-hot-toast";
@@ -216,3 +216,4 @@ export default function NetworksPage() {
     </Layout>
   );
 }
+

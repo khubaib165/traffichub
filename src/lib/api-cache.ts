@@ -146,7 +146,7 @@ export async function cachedFetch<T = any>(
 /**
  * Invalidate cache for specific endpoint patterns
  */
-export function invalidateCache(pattern: string): number {
+export function invalidateCache(_pattern: string): number {
   let invalidated = 0;
   requestCache.clearExpired();
 

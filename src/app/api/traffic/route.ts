@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import pushHouseService from "@/lib/push-house-client";
 
-export async function GET(request: NextRequest) {
+export async function GET(_request: NextRequest) {
   try {
-    const { searchParams } = new URL(request.url);
+    const { searchParams } = new URL(_request.url);
     const campaignId = searchParams.get("campaignId");
     const type = searchParams.get("type") || "volume";
     const from = searchParams.get("from");
@@ -26,7 +26,7 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json(
       {
-        traffic: response.traffic || response.volume || response,
+        traffic: (response as any).traffic || (response as any).volume || response,
         source: "push_house",
       },
       { status: 200 }

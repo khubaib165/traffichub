@@ -3,7 +3,7 @@ import { adminDb } from "@/lib/firebase-admin";
 import pushHouseService from "@/lib/push-house-client";
 
 export async function GET(
-  request: NextRequest,
+  _request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
@@ -91,7 +91,7 @@ export async function PUT(
 }
 
 export async function DELETE(
-  request: NextRequest,
+  _request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
@@ -99,7 +99,7 @@ export async function DELETE(
 
     // Try Push House API first
     try {
-      const result = await pushHouseService.deleteCampaign(id);
+      await pushHouseService.deleteCampaign(id);
       return NextResponse.json(
         { id, message: "Campaign deleted successfully", source: "push_house" },
         { status: 200 }

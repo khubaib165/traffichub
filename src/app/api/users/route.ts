@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import { adminDb } from "@/lib/firebase-admin";
 
-export async function GET(request: NextRequest) {
+export async function GET(_request: NextRequest) {
   try {
-    const { searchParams } = new URL(request.url);
+    const { searchParams } = new URL(_request.url);
     const status = searchParams.get("status");
     const limit = parseInt(searchParams.get("limit") || "50");
     const offset = parseInt(searchParams.get("offset") || "0");
@@ -35,7 +35,7 @@ export async function GET(request: NextRequest) {
 
     const querySnapshot = await paginatedQuery.get();
 
-    const users = querySnapshot.docs.map((doc) => {
+    const users = querySnapshot.docs.map((doc: any) => {
       const data = doc.data();
       return {
         id: doc.id,
