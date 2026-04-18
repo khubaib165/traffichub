@@ -3,6 +3,9 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { setDoc, doc } from "firebase/firestore";
+import { auth, db, isInitialized } from "@/lib/firebase";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { Card } from "@/components/ui/Card";
@@ -28,26 +31,72 @@ export default function RegisterPage() {
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    if (!formData.name) {
+      toast.error("Name is required");
+      return;
+    }
+
     if (formData.password !== formData.confirmPassword) {
       toast.error("Passwords do not match");
+      return;
+    }
+
+    if (formData.password.length < 6) {
+      toast.error("Password must be at least 6 characters");
+      return;
+    }
+
+    if (!isInitialized || !auth || !db) {
+      toast.error("Firebase not initialized. Please check your configuration.");
       return;
     }
 
     setIsLoading(true);
 
     try {
-      // Mock registration for now
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      // Create Firebase auth user
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        formData.email,
+        formData.password
+      );
 
-      // Show success message
-      toast.success("Account created successfully");
+      const user = userCredential.user;
+
+      // Update Firebase auth profile with display name
+      await updateProfile(user, {
+        displayName: formData.name,
+      });
+
+      // Create user document in Firestore
+      await setDoc(doc(db, "users", user.uid), {
+        name: formData.name,
+        email: formData.email,
+        role: "advertiser",
+        verified: false,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      });
+
+      toast.success("Account created successfully! Redirecting to dashboard...");
       
       // Redirect to dashboard after brief delay
       setTimeout(() => {
         router.push("/dashboard");
       }, 500);
-    } catch (error) {
-      toast.error("Registration failed. Please try again.");
+    } catch (error: any) {
+      console.error("Registration error:", error);
+      
+      // Handle specific Firebase errors
+      if (error.code === "auth/email-already-in-use") {
+        toast.error("Email already in use");
+      } else if (error.code === "auth/invalid-email") {
+        toast.error("Invalid email address");
+      } else if (error.code === "auth/weak-password") {
+        toast.error("Password is too weak");
+      } else {
+        toast.error(error.message || "Registration failed. Please try again.");
+      }
       setIsLoading(false);
     }
   };

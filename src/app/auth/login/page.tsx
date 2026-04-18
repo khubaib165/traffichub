@@ -1,8 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth, isInitialized } from "@/lib/firebase";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { Card } from "@/components/ui/Card";
@@ -14,23 +16,55 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
+  // Check if already logged in
+  useEffect(() => {
+    if (isInitialized && auth?.currentUser) {
+      router.push("/dashboard");
+    }
+  }, [router]);
+
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!email || !password) {
+      toast.error("Email and password are required");
+      return;
+    }
+
+    if (!isInitialized || !auth) {
+      toast.error("Firebase not initialized. Please check your configuration.");
+      return;
+    }
+
     setIsLoading(true);
 
     try {
-      // Mock login for now
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-
-      // Show success message
-      toast.success("Logged in successfully");
+      // Sign in with Firebase
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
       
-      // Redirect to dashboard after brief delay
-      setTimeout(() => {
-        router.push("/dashboard");
-      }, 500);
-    } catch (error) {
-      toast.error("Login failed. Please try again.");
+      if (userCredential.user) {
+        toast.success("Logged in successfully!");
+        
+        // Redirect to dashboard after brief delay
+        setTimeout(() => {
+          router.push("/dashboard");
+        }, 500);
+      }
+    } catch (error: any) {
+      console.error("Login error:", error);
+      
+      // Handle specific Firebase errors
+      if (error.code === "auth/user-not-found") {
+        toast.error("User not found. Please register first.");
+      } else if (error.code === "auth/wrong-password") {
+        toast.error("Incorrect password");
+      } else if (error.code === "auth/invalid-email") {
+        toast.error("Invalid email address");
+      } else if (error.code === "auth/user-disabled") {
+        toast.error("Account has been disabled");
+      } else {
+        toast.error(error.message || "Login failed. Please try again.");
+      }
       setIsLoading(false);
     }
   };
