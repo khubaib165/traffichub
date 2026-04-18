@@ -13,24 +13,33 @@ const firebaseConfig = {
   measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
+let app: any;
+let auth: any;
+let db: any;
+let storage: any;
 
-// Initialize services
-export const auth = getAuth(app);
-export const db = getFirestore(app);
-export const storage = getStorage(app);
-
-// Connect to emulator in development (optional)
-if (process.env.NODE_ENV === "development" && typeof window !== "undefined") {  
-  // Only in browser to avoid issues with SSR
+// Only initialize Firebase in browser environment
+if (typeof window !== "undefined") {
   try {
-    if (!auth.currentUser) {
-      connectAuthEmulator(auth, "http://localhost:9099", { disableWarnings: true });
+    app = initializeApp(firebaseConfig);
+    auth = getAuth(app);
+    db = getFirestore(app);
+    storage = getStorage(app);
+
+    // Connect to emulator in development (optional)
+    if (process.env.NODE_ENV === "development") {
+      try {
+        if (!auth.currentUser) {
+          connectAuthEmulator(auth, "http://localhost:9099", { disableWarnings: true });
+        }
+      } catch (error) {
+        // Emulator already connected
+      }
     }
   } catch (error) {
-    // Emulator already connected
+    console.warn("Firebase initialization failed:", error);
   }
 }
 
+export { app, auth, db, storage };
 export default app;
