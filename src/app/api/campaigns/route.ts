@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import pushHouseService from "@/lib/push-house-client";
 import { adminDb } from "@/lib/firebase-admin";
+
+export const dynamic = "force-dynamic";
 import { campaignRateLimiter } from "@/lib/rate-limiter";
 
 export async function GET(request: NextRequest) {

@@ -1,4 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
+
+export const dynamic = "force-dynamic";
 import pushHouseService from "@/lib/push-house-client";
 
 export async function POST(request: NextRequest) {

@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { adminDb } from "@/lib/firebase-admin";
 import pushHouseService from "@/lib/push-house-client";
 
+export const dynamic = "force-dynamic";
+
 export async function POST(
   _request: NextRequest,
   { params }: { params: Promise<{ id: string }> }

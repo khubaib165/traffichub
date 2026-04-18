@@ -1,17 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
-import {
-  getFirestore,
-  collection,
-  getDocs,
-  addDoc,
-  query,
-  where,
-  Timestamp,
-} from "firebase/firestore";
-import app from "@/lib/firebase";
+import { adminDb } from "@/lib/firebase-admin";
 import pushHouseService from "@/lib/push-house-client";
 
-const db = getFirestore(app);
+export const dynamic = "force-dynamic";
 
 export async function GET(_request: NextRequest) {
   try {
@@ -22,15 +13,13 @@ export async function GET(_request: NextRequest) {
     } catch (pushHouseError) {
       console.warn("Push House API temporarily unavailable for audiences, falling back to Firestore");
 
-      // Fallback to Firestore
-      const audiencesRef = collection(db, "audiences");
-      const q = query(
-        audiencesRef,
-        where("status", "!=", "deleted")
-      );
-      const snapshot = await getDocs(q);
+      // Fallback to Firestore (Admin SDK)
+      const snapshot = await adminDb
+        .collection("audiences")
+        .where("status", "!=", "deleted")
+        .get();
 
-      const audiences = snapshot.docs.map((doc) => ({
+      const audiences = snapshot.docs.map((doc: any) => ({
         id: doc.id,
         ...doc.data(),
       }));
@@ -68,14 +57,13 @@ export async function POST(request: NextRequest) {
     } catch (pushHouseError) {
       console.warn("Push House API temporarily unavailable for creating audience, saving to Firestore");
 
-      // Fallback: Save to Firestore
-      const audienceRef = collection(db, "audiences");
-      const docRef = await addDoc(audienceRef, {
+      // Fallback: Save to Firestore (Admin SDK)
+      const docRef = await adminDb.collection("audiences").add({
         name: body.name,
         description: body.description || "",
         status: "active",
-        createdAt: Timestamp.now(),
-        updatedAt: Timestamp.now(),
+        createdAt: new Date(),
+        updatedAt: new Date(),
       });
 
       return NextResponse.json(

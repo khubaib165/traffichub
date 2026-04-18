@@ -1,16 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
-import {
-  getFirestore,
-  doc,
-  getDoc,
-  updateDoc,
-  deleteDoc,
-  Timestamp,
-} from "firebase/firestore";
-import app from "@/lib/firebase";
+import { adminDb } from "@/lib/firebase-admin";
 import pushHouseService from "@/lib/push-house-client";
 
-const db = getFirestore(app);
+export const dynamic = "force-dynamic";
 
 export async function GET(
   _request: NextRequest,
@@ -26,11 +18,10 @@ export async function GET(
     } catch (pushHouseError) {
       console.warn("Push House API temporarily unavailable for getting audience, checking Firestore");
 
-      // Fallback to Firestore
-      const audienceRef = doc(db, "audiences", id);
-      const snapshot = await getDoc(audienceRef);
+      // Fallback to Firestore (Admin SDK)
+      const snapshot = await adminDb.collection("audiences").doc(id).get();
 
-      if (!snapshot.exists()) {
+      if (!snapshot.exists) {
         return NextResponse.json(
           { error: "Audience not found" },
           { status: 404 }
@@ -72,14 +63,13 @@ export async function PATCH(
     } catch (pushHouseError) {
       console.warn("Push House API temporarily unavailable for updating audience, updating Firestore");
 
-      // Fallback to Firestore
-      const audienceRef = doc(db, "audiences", id);
-      await updateDoc(audienceRef, {
+      // Fallback to Firestore (Admin SDK)
+      await adminDb.collection("audiences").doc(id).update({
         ...body,
-        updatedAt: Timestamp.now(),
+        updatedAt: new Date(),
       });
 
-      const updated = await getDoc(audienceRef);
+      const updated = await adminDb.collection("audiences").doc(id).get();
       return NextResponse.json(
         {
           data: {
@@ -114,9 +104,8 @@ export async function DELETE(
     } catch (pushHouseError) {
       console.warn("Push House API temporarily unavailable for deleting audience, deleting from Firestore");
 
-      // Fallback to Firestore
-      const audienceRef = doc(db, "audiences", id);
-      await deleteDoc(audienceRef);
+      // Fallback to Firestore (Admin SDK)
+      await adminDb.collection("audiences").doc(id).delete();
 
       return NextResponse.json(
         { success: true, source: "firestore" },

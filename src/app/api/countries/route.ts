@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import pushHouseService from "@/lib/push-house-client";
 
+export const dynamic = "force-dynamic";
+
 export async function GET(_request: NextRequest) {
   try {
     console.log("🌐 [Countries API] Fetching real country data from Push House...");

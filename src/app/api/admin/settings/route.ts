@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { adminDb } from "@/lib/firebase-admin";
 
+export const dynamic = "force-dynamic";
+
 export async function GET(_request: NextRequest) {
   try {
     const doc = await adminDb.collection("admin").doc("settings").get();
