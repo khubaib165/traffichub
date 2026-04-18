@@ -19,12 +19,27 @@ export default function DashboardPage() {
   const [chartData, setChartData] = useState<any[]>([]);
   const [topCampaigns, setTopCampaigns] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  const [greeting, setGreeting] = useState("Good morning");
   const [stats, setStats] = useState({
     todaySpend: "0",
     todayClicks: "0",
     conversions: "0",
     avgCTR: "0",
   });
+
+  // Calculate time-based greeting
+  useEffect(() => {
+    const hour = new Date().getHours();
+    if (hour >= 5 && hour < 12) {
+      setGreeting("Good morning");
+    } else if (hour >= 12 && hour < 17) {
+      setGreeting("Good afternoon");
+    } else if (hour >= 17 && hour < 21) {
+      setGreeting("Good evening");
+    } else {
+      setGreeting("Good night");
+    }
+  }, []);
 
   // Fetch real data from Push House API
   useEffect(() => {
@@ -104,10 +119,15 @@ export default function DashboardPage() {
           <div className="flex items-start justify-between">
             <div>
               <h1 className="text-3xl font-bold text-text-primary mb-1">
-                Good morning, {user?.name || "User"} 👋
+                {greeting}, {user?.name || "User"} 👋
               </h1>
               <p className="text-text-secondary">
-                Tuesday, April 14, 2026 — Your campaigns are running well today
+                {new Date().toLocaleDateString("en-US", {
+                  weekday: "long",
+                  month: "long",
+                  day: "numeric",
+                  year: "numeric",
+                })} — Your campaigns are running well today
               </p>
             </div>
             <Button 

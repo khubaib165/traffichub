@@ -7,7 +7,7 @@ interface AuthStore {
   isAuthenticated: boolean;
   setUser: (user: User | null) => void;
   setIsLoading: (loading: boolean) => void;
-  logout: () => void;
+  logout: () => void | Promise<void>;
 }
 
 export const useAuthStore = create<AuthStore>((set) => ({

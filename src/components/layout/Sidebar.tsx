@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import {
   Bell,
   Home,
@@ -13,8 +13,11 @@ import {
   Lock,
 } from "lucide-react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useUIStore, useThemeStore, useAuthStore } from "@/lib/store";
+import { signOut } from "firebase/auth";
+import { auth } from "@/lib/firebase";
+import toast from "react-hot-toast";
 
 interface NavItem {
   label: string;
@@ -25,9 +28,25 @@ interface NavItem {
 
 export const Sidebar: React.FC = () => {
   const pathname = usePathname();
+  const router = useRouter();
+  const [isLoggingOut, setIsLoggingOut] = useState(false);
   const { sidebarOpen, toggleSidebar } = useUIStore();
   const { theme, toggleTheme } = useThemeStore();
   const { user, logout } = useAuthStore();
+
+  const handleLogout = async () => {
+    try {
+      setIsLoggingOut(true);
+      await signOut(auth);
+      logout();
+      toast.success("Logged out successfully");
+      router.push("/auth/login");
+    } catch (error) {
+      console.error("Error logging out:", error);
+      toast.error("Failed to logout");
+      setIsLoggingOut(false);
+    }
+  };
 
   const navItems: NavItem[] = [
     {
@@ -186,14 +205,15 @@ export const Sidebar: React.FC = () => {
             </div>
           )}
           <button
-            onClick={() => logout()}
+            onClick={handleLogout}
+            disabled={isLoggingOut}
             className={`w-full flex items-center ${
               sidebarOpen ? "gap-2 px-3" : "justify-center"
-            } py-2 text-text-secondary hover:text-brand-red transition-default rounded-lg`}
+            } py-2 text-text-secondary hover:text-brand-red transition-default rounded-lg disabled:opacity-50 disabled:cursor-not-allowed`}
             title="Logout"
           >
             <LogOut size={18} />
-            {sidebarOpen && <span className="text-sm font-medium">Logout</span>}
+            {sidebarOpen && <span className="text-sm font-medium">{isLoggingOut ? "Logging out..." : "Logout"}</span>}
           </button>
         </div>
       </aside>

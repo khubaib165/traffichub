@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { ToastProvider } from "@/components/providers/ToastProvider";
+import { AuthProvider } from "@/components/providers/AuthProvider";
 import "@/styles/globals.css";
 
 export const metadata: Metadata = {
@@ -31,9 +32,11 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-bg-dark text-text-primary font-sans">
-        <ThemeProvider>
-          <ToastProvider>{children}</ToastProvider>
-        </ThemeProvider>
+        <AuthProvider>
+          <ThemeProvider>
+            <ToastProvider>{children}</ToastProvider>
+          </ThemeProvider>
+        </AuthProvider>
       </body>
     </html>
   );
