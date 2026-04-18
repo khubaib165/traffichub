@@ -6,6 +6,7 @@ interface BadgeProps {
   status: "active" | "paused" | "pending" | "rejected" | "draft" | "completed";
   label?: string;
   size?: "sm" | "md";
+  children?: never;
 }
 
 const statusStyles = {
@@ -31,7 +32,7 @@ const sizeStyles = {
   md: "px-3 py-1.5 text-sm",
 };
 
-export const Badge: React.FC<BadgeProps> = ({ status, label, size = "md" }) => {
+export const Badge = ({ status, label, size = "md" }: BadgeProps) => {
   return (
     <span
       className={`

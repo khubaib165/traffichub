@@ -1,6 +1,6 @@
 import { type NextRequest, NextResponse } from "next/server";
 
-export function middleware(request: NextRequest) {
+export function middleware(_request: NextRequest) {
   // DEVELOPMENT MODE: Allow all routes (auth checks disabled for now)
   return NextResponse.next();
 }

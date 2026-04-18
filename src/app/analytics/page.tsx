@@ -4,13 +4,9 @@ import React, { useState, useEffect } from "react";
 import { Layout } from "@/components/layout/Layout";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
-import { Input } from "@/components/ui/Input";
-import { Skeleton } from "@/components/ui/Skeleton";
 import {
   LineChart,
   Line,
-  BarChart,
-  Bar,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -19,7 +15,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import { colors } from "@/styles/design-tokens";
-import { TrendingUp, Download } from "lucide-react";
+import { Download } from "lucide-react";
 import toast from "react-hot-toast";
 
 export default function AnalyticsPage() {
@@ -31,14 +27,11 @@ export default function AnalyticsPage() {
   ]);
   const [chartData, setChartData] = useState<any[]>([]);
   const [dimensionData, setDimensionData] = useState<any>({ country: [] });
-  const [loading, setLoading] = useState(true);
 
   // Fetch real analytics data from API
   useEffect(() => {
     const fetchAnalyticsData = async () => {
       try {
-        setLoading(true);
-
         // Fetch stats
         const statsRes = await fetch("/api/stats");
         const statsData = await statsRes.json();
@@ -75,8 +68,6 @@ export default function AnalyticsPage() {
       } catch (error) {
         console.error("Failed to fetch analytics data:", error);
         toast.error("Failed to load analytics data");
-      } finally {
-        setLoading(false);
       }
     };
 
@@ -250,7 +241,7 @@ export default function AnalyticsPage() {
               Performance by Country
             </h3>
             <div className="space-y-4">
-              {dimensionData.country.map((country, idx) => (
+              {dimensionData.country.map((country: any, idx: number) => (
                 <div key={idx}>
                   <div className="flex justify-between items-center mb-2">
                     <span className="text-sm font-medium text-text-primary">

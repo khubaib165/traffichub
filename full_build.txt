@@ -1,0 +1,37 @@
+﻿
+> trafficflow@1.0.0 build
+> next build
+
+   Γû▓ Next.js 15.5.15
+   - Environments: .env.local
+   - Experiments (use with caution):
+     ┬╖ optimizePackageImports
+
+   Creating an optimized production build ...
+ Γ£ô Compiled successfully in 14.2s
+   Linting and checking validity of types ...
+npm : Failed to compile.
+At line:1 char:57
++ ... Khubaib Hassan\Desktop\Traffichub.space" ; npm run build 2>&1 | Out-F ...
++                                                ~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Failed to compile.:String) [], Re 
+   moteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+./src/app/analytics/page.tsx:18:10
+Type error: 'TrendingUp' is declared but its value is never read.
+
+[0m [90m 16 |[39m } [36mfrom[39m [32m"recharts"[39m[33m;[39m
+ [90m 17 |[39m [36mimport[39m { colors } [36mfrom[39m 
+[32m"@/styles/design-tokens"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 18 |[39m [36mimport[39m { 
+[33mTrendingUp[39m[33m,[39m [33mDownload[39m } [36mfrom[39m 
+[32m"lucide-react"[39m[33m;[39m
+ [90m    |[39m          [31m[1m^[22m[39m
+ [90m 19 |[39m [36mimport[39m toast [36mfrom[39m 
+[32m"react-hot-toast"[39m[33m;[39m
+ [90m 20 |[39m
+ [90m 21 |[39m [36mexport[39m [36mdefault[39m [36mfunction[39m 
+[33mAnalyticsPage[39m() {[0m
+Next.js build worker exited with code: 1 and signal: null

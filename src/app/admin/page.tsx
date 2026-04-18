@@ -435,9 +435,8 @@ export default function AdminPage() {
                                 ? "rejected"
                                 : ("pending" as any)
                             }
-                          >
-                            {campaign.status}
-                          </Badge>
+                            label={campaign.status}
+                          />
                         </div>
                         <div className="flex gap-6 text-sm">
                           <span className="text-text-muted">

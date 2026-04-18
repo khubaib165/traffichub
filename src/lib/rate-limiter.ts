@@ -182,6 +182,7 @@ export function getClientIp(request: any): string {
   );
 }
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
   globalRateLimiter,
   campaignRateLimiter,
