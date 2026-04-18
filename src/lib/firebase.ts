@@ -13,33 +13,45 @@ const firebaseConfig = {
   measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
 };
 
-let app: any;
-let auth: any;
-let db: any;
-let storage: any;
+let app: any = null;
+let auth: any = null;
+let db: any = null;
+let storage: any = null;
+let isInitialized = false;
 
 // Only initialize Firebase in browser environment
 if (typeof window !== "undefined") {
   try {
-    app = initializeApp(firebaseConfig);
-    auth = getAuth(app);
-    db = getFirestore(app);
-    storage = getStorage(app);
+    // Check if all required environment variables are present
+    if (
+      firebaseConfig.apiKey &&
+      firebaseConfig.authDomain &&
+      firebaseConfig.projectId &&
+      firebaseConfig.appId
+    ) {
+      app = initializeApp(firebaseConfig);
+      auth = getAuth(app);
+      db = getFirestore(app);
+      storage = getStorage(app);
+      isInitialized = true;
 
-    // Connect to emulator in development (optional)
-    if (process.env.NODE_ENV === "development") {
-      try {
-        if (!auth.currentUser) {
-          connectAuthEmulator(auth, "http://localhost:9099", { disableWarnings: true });
+      // Connect to emulator in development (optional)
+      if (process.env.NODE_ENV === "development") {
+        try {
+          if (!auth.currentUser) {
+            connectAuthEmulator(auth, "http://localhost:9099", { disableWarnings: true });
+          }
+        } catch (error) {
+          // Emulator already connected
         }
-      } catch (error) {
-        // Emulator already connected
       }
+    } else {
+      console.warn("Firebase configuration incomplete - missing required environment variables");
     }
   } catch (error) {
     console.warn("Firebase initialization failed:", error);
   }
 }
 
-export { app, auth, db, storage };
+export { app, auth, db, storage, isInitialized };
 export default app;

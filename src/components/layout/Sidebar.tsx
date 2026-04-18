@@ -16,7 +16,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useUIStore, useThemeStore, useAuthStore } from "@/lib/store";
 import { signOut } from "firebase/auth";
-import { auth } from "@/lib/firebase";
+import { auth, isInitialized } from "@/lib/firebase";
 import toast from "react-hot-toast";
 
 interface NavItem {
@@ -37,7 +37,9 @@ export const Sidebar: React.FC = () => {
   const handleLogout = async () => {
     try {
       setIsLoggingOut(true);
-      await signOut(auth);
+      if (isInitialized && auth) {
+        await signOut(auth);
+      }
       logout();
       toast.success("Logged out successfully");
       router.push("/auth/login");

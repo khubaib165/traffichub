@@ -3,7 +3,7 @@
 import React, { useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
-import { auth, db } from "@/lib/firebase";
+import { auth, db, isInitialized } from "@/lib/firebase";
 import { useAuthStore } from "@/lib/store";
 import { User } from "@/lib/types";
 
@@ -15,6 +15,13 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const { setUser, setIsLoading } = useAuthStore();
 
   useEffect(() => {
+    // Only set up auth listener if Firebase is properly initialized
+    if (!isInitialized || !auth) {
+      console.warn("Firebase not initialized - skipping auth listener");
+      setIsLoading(false);
+      return;
+    }
+
     // Listen to Firebase auth state changes
     const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
       try {
@@ -63,7 +70,11 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     });
 
     // Cleanup subscription on unmount
-    return () => unsubscribe();
+    return () => {
+      if (unsubscribe) {
+        unsubscribe();
+      }
+    };
   }, [setUser, setIsLoading]);
 
   return <>{children}</>;
