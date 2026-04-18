@@ -92,6 +92,7 @@ export default function LoginPage() {
               placeholder="you@example.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              autoComplete="email"
               required
             />
 
@@ -116,18 +117,12 @@ export default function LoginPage() {
           </form>
 
           <div className="mt-6 pt-6 border-t border-border-dark">
-            <p className="text-sm text-text-muted text-center mb-3">
+            <p className="text-sm text-text-muted text-center">
               Don't have an account?{" "}
               <Link href="/auth/register" className="text-brand-cyan hover:underline">
                 Sign up
               </Link>
             </p>
-            <Link
-              href="/auth/forgot-password"
-              className="text-xs text-brand-cyan hover:underline block text-center"
-            >
-              Forgot password?
-            </Link>
           </div>
         </Card>
       </div>

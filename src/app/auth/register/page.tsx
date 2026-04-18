@@ -125,6 +125,7 @@ export default function RegisterPage() {
               placeholder="John Doe"
               value={formData.name}
               onChange={handleChange}
+              autoComplete="name"
               required
             />
 
@@ -135,6 +136,7 @@ export default function RegisterPage() {
               placeholder="you@example.com"
               value={formData.email}
               onChange={handleChange}
+              autoComplete="email"
               required
             />
 
